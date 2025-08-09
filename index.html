@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daria Avdeeva — Portfolio</title>
+  <meta name="description" content="Oil paintings portfolio by Daria Avdeeva" />
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-neutral-50 text-neutral-900 antialiased">
+  <header class="sticky top-0 z-30 bg-white/80 backdrop-blur border-b">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-9 h-9 rounded-full bg-neutral-900 text-white grid place-content-center font-semibold">DA</div>
+        <div>
+          <h1 class="text-lg font-semibold leading-tight">Daria Avdeeva</h1>
+          <p class="text-xs text-neutral-500">Oil paintings • Fine art</p>
+        </div>
+      </div>
+      <nav class="hidden sm:flex items-center gap-6 text-sm">
+        <a href="#work" class="hover:opacity-70">Works</a>
+        <a href="#about" class="hover:opacity-70">About</a>
+        <a href="#contact" class="hover:opacity-70">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="relative">
+    <div class="max-w-6xl mx-auto px-4 py-12 sm:py-16 grid sm:grid-cols-2 gap-8 items-center">
+      <div>
+        <h2 class="text-3xl sm:text-5xl font-bold tracking-tight mb-4">Original oil paintings<br><span class="text-neutral-500 font-light">by Daria Avdeeva</span></h2>
+        <p class="text-neutral-600 mb-6">A curated portfolio of original works on canvas. Browse high‑resolution images, artwork details, and request commissions.</p>
+        <div class="flex gap-3">
+          <a href="#work" class="px-4 py-2 rounded-2xl bg-neutral-900 text-white hover:opacity-90">Explore works</a>
+          <a href="#contact" class="px-4 py-2 rounded-2xl border hover:bg-neutral-100">Commission</a>
+        </div>
+      </div>
+      <div class="aspect-[4/3] rounded-2xl overflow-hidden shadow-sm bg-neutral-200">
+        <img src="https://via.placeholder.com/1200x900" alt="Hero painting" class="w-full h-full object-cover">
+      </div>
+    </div>
+  </section>
+
+  <section id="work" class="max-w-6xl mx-auto px-4 py-6">
+    <h3 class="text-2xl font-semibold mb-4">Works</h3>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      <article class="group rounded-2xl overflow-hidden border bg-white">
+        <div class="aspect-[4/3] bg-neutral-100 overflow-hidden">
+          <img src="https://drive.google.com/file/d/1CBRSBr3EbG6bwD7IbsXvBhf01Kd2DdEa/view?usp=sharing" alt="Monkeys Everywhere - The Dance of Instinct" class="w-full h-full object-cover"/>
+        </div>
+        <div class="p-3">
+          <h4 class="font-medium">Monkeys Everywhere - The Dance of Instinct</h4>
+          <p class="text-sm text-neutral-600">Oil on canvas • 120 × 60 cm • 2025</p>
+          <p class="mt-2 text-neutral-600 text-sm">In “Monkeys Everywhere - The Dance of Instinct” the viewer is drawn into a vivid, almost surreal arboreal world—where chaos and harmony coexist... </p>
+          <p class="mt-2 font-medium">AED 10,000</p>
+        </div>
+      </article>
+      <article class="group rounded-2xl overflow-hidden border bg-white">
+        <div class="aspect-[4/3] bg-neutral-100 overflow-hidden">
+          <img src="https://drive.google.com/file/d/13OPfEXTPDc9tTCtIT5f9ha5jveXYyVZp/view?usp=sharing" alt="Chasing Luck" class="w-full h-full object-cover"/>
+        </div>
+        <div class="p-3">
+          <h4 class="font-medium">Chasing Luck</h4>
+          <p class="text-sm text-neutral-600">Oil on canvas • 120 × 90 cm • 2023</p>
+          <p class="mt-2 text-neutral-600 text-sm">"Chasing Luck" captures the perpetual pursuit of fortune. Two dynamically posed bunnies engage in a playful, circular chase within a sunlit meadow...</p>
+          <p class="mt-2 font-medium">AED 10,000</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="about" class="bg-white border-t">
+    <div class="max-w-6xl mx-auto px-4 py-12">
+      <h3 class="text-2xl font-semibold mb-2">About the artist</h3>
+      <p class="text-neutral-600">Daria Avdeeva is an oil painter based in Dubai, UAE. Her work blends intricate storytelling with vivid color palettes, inviting viewers into worlds both surreal and deeply human.</p>
+    </div>
+  </section>
+
+  <section id="contact" class="max-w-6xl mx-auto px-4 py-12">
+    <div class="rounded-2xl border bg-white p-6">
+      <h3 class="text-2xl font-semibold mb-2">Get in touch</h3>
+      <p class="text-neutral-600 mb-4">Email: <a href="mailto:artist.dariaavd@gmail.com" class="underline">artist.dariaavd@gmail.com</a></p>
+      <p class="text-neutral-600 mb-4">Instagram: <a href="https://instagram.com/dariadrawsart" class="underline">@dariadrawsart</a></p>
+      <p class="text-neutral-600">Mobile: 0563443141</p>
+    </div>
+  </section>
+
+  <footer class="py-10 text-center text-sm text-neutral-500">© <span id="year"></span> Daria Avdeeva. All rights reserved.</footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
