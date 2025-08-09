@@ -4,15 +4,19 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Artwork — Daria Avdeeva</title>
-  <meta name="description" content="Artwork details" />
+  <meta name="description" content="Artwork details page" />
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-neutral-50 text-neutral-900 antialiased">
   <header class="sticky top-0 z-30 bg-white/80 backdrop-blur border-b">
     <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
-      <a href="./index.html" class="text-lg font-semibold">Daria Avdeeva</a>
+      <div class="flex items-center gap-3">
+        <div class="w-9 h-9 rounded-full bg-neutral-900 text-white grid place-content-center font-semibold">DA</div>
+        <a href="./index.html" class="text-lg font-semibold leading-tight">Daria Avdeeva</a>
+      </div>
       <nav class="hidden sm:flex items-center gap-6 text-sm">
         <a href="./gallery.html" class="hover:opacity-70">All Works</a>
+        <a href="./index.html#about" class="hover:opacity-70">About</a>
         <a href="./index.html#contact" class="hover:opacity-70">Contact</a>
       </nav>
     </div>
@@ -36,12 +40,11 @@
     </div>
   </main>
 
-  <!-- Load shared data -->
+  <!-- Load shared data FIRST -->
   <script src="./artworks.js"></script>
 
+  <!-- Page script -->
   <script>
-    // If you saved artworks.js separately, include it with: <script src="./artworks.js"><\/script>
-
     function getParam(key){
       const url = new URL(window.location.href);
       return url.searchParams.get(key);
@@ -50,11 +53,13 @@
     function renderArtwork(){
       const id = getParam('id');
       const a = (window.ARTWORKS||[]).find(x=>x.id===id);
+
       if(!a){
         document.body.innerHTML = '<div class="max-w-2xl mx-auto p-6 text-center">Artwork not found. <a href="./gallery.html" class="underline">Back to all works</a></div>';
         return;
       }
-      document.title = `${a.title} — ${window.ARTIST?.name||'Artist'}`;
+
+      document.title = `${a.title} — ${window.ARTIST?.name || 'Artist'}`;
       document.getElementById('img').src = a.image;
       document.getElementById('title').textContent = a.title;
       document.getElementById('meta').textContent = `${a.medium} • ${a.size_cm} • ${a.year} • ${a.status}`;
