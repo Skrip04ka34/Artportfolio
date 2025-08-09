@@ -1,5 +1,5 @@
-<script>
-// Central data source used by both pages. Adjust image paths to match your repo (e.g., "./images/..." or "./...")
+// Shared data for gallery.html and artwork.html
+
 window.ARTIST = {
   name: "Daria Avdeeva",
   email: "artist.dariaavd@gmail.com",
@@ -18,7 +18,7 @@ window.ARTWORKS = [
     price: "AED 10,000",
     image: "./images/MonkeysEverywhere.jpg",
     location: "Dubai, UAE",
-    description: "In “Monkeys Everywhere - The Dance of Instinct” the viewer is drawn into a vivid, almost surreal arboreal world—where chaos and harmony coexist. The fiery orange backdrop..."
+    description: "In “Monkeys Everywhere - The Dance of Instinct” the viewer is drawn into a vivid, almost surreal arboreal world—where chaos and harmony coexist. The fiery orange backdrop, with its swirling patterns of red and ember-like foliage, evokes not just a forest, but the primal energy of life itself... (you can paste your full text here)"
   },
   {
     id: "a2",
@@ -31,7 +31,6 @@ window.ARTWORKS = [
     price: "AED 10,000",
     image: "./images/Chasing-Luck_res.jpg",
     location: "Dubai, UAE",
-    description: "\"Chasing Luck\" captures the perpetual pursuit of fortune..."
+    description: "\"Chasing Luck\" captures the perpetual pursuit of fortune. Two dynamically posed bunnies engage in a playful, circular chase within a sunlit meadow... (your full text here)"
   }
 ];
-</script>
