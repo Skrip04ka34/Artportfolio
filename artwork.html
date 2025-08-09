@@ -64,7 +64,7 @@
       document.getElementById('title').textContent = a.title;
       document.getElementById('meta').textContent = `${a.medium} • ${a.size_cm} • ${a.year} • ${a.status}`;
       document.getElementById('price').textContent = a.price;
-      document.getElementById('desc').textContent = a.description || '';
+      document.getElementById('desc').innerHTML = a.description || '';
       document.getElementById('inquire').href = `mailto:${window.ARTIST?.email}?subject=${encodeURIComponent('Inquiry: '+a.title)}`;
       document.getElementById('instagram').href = `https://instagram.com/${(window.ARTIST?.instagram||'').replace('@','')}`;
     }
