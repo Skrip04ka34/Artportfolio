@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>All Works — Daria Avdeeva</title>
+  <meta name="description" content="Browse all artworks by Daria Avdeeva" />
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-neutral-50 text-neutral-900 antialiased">
+  <header class="sticky top-0 z-30 bg-white/80 backdrop-blur border-b">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="./index.html" class="text-lg font-semibold">Daria Avdeeva</a>
+      <nav class="hidden sm:flex items-center gap-6 text-sm">
+        <a href="./index.html#about" class="hover:opacity-70">About</a>
+        <a href="./index.html#contact" class="hover:opacity-70">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 py-8">
+    <div class="flex items-end justify-between mb-4">
+      <div>
+        <h1 class="text-3xl font-bold">All Works</h1>
+        <p class="text-sm text-neutral-600">Click any piece to view details.</p>
+      </div>
+      <div class="flex gap-2">
+        <input id="search" placeholder="Search title, medium…" class="px-3 py-2 border rounded-xl text-sm bg-white" />
+        <select id="filterCollection" class="px-3 py-2 border rounded-xl text-sm bg-white"></select>
+        <select id="filterYear" class="px-3 py-2 border rounded-xl text-sm bg-white"></select>
+        <select id="filterStatus" class="px-3 py-2 border rounded-xl text-sm bg-white">
+          <option value="">All statuses</option>
+          <option>Available</option>
+          <option>Sold</option>
+          <option>Reserved</option>
+        </select>
+      </div>
+    </div>
+
+    <div id="grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+    <div id="empty" class="hidden text-center py-12 text-neutral-500">No artworks match your filters.</div>
+  </main>
+
+  <!-- Load shared data -->
+  <!-- Paste the contents of artworks.js right above this line in your real file, or include via <script src="./artworks.js"></script> -->
+
+  <script>
+    // If you saved artworks.js as a separate file, include it with: <script src="./artworks.js"><\/script>
+
+    const grid = document.getElementById('grid');
+    const search = document.getElementById('search');
+    const filterCollection = document.getElementById('filterCollection');
+    const filterYear = document.getElementById('filterYear');
+    const filterStatus = document.getElementById('filterStatus');
+
+    function setupFilters(){
+      const collections = Array.from(new Set(window.ARTWORKS.map(a=>a.collection))).sort();
+      const years = Array.from(new Set(window.ARTWORKS.map(a=>a.year))).sort((a,b)=>b-a);
+      filterCollection.innerHTML = `<option value="">All collections</option>` + collections.map(c=>`<option>${c}</option>`).join('');
+      filterYear.innerHTML = `<option value="">All years</option>` + years.map(y=>`<option>${y}</option>`).join('');
+    }
+
+    function card(a){
+      return `
+        <article class="group rounded-2xl overflow-hidden border bg-white">
+          <a href="./artwork.html?id=${encodeURIComponent(a.id)}" class="block">
+            <div class="aspect-[4/3] bg-neutral-100 overflow-hidden">
+              <img src="${a.image}" alt="${a.title}" class="w-full h-full object-cover group-hover:scale-105 transition"/>
+            </div>
+            <div class="p-3">
+              <h3 class="font-medium">${a.title}</h3>
+              <p class="text-sm text-neutral-600">${a.medium} • ${a.size_cm} • ${a.year}</p>
+              <div class="mt-2 flex items-center justify-between text-sm">
+                <span class="px-2 py-0.5 rounded-full border">${a.status}</span>
+                <span class="font-medium">${a.price}</span>
+              </div>
+            </div>
+          </a>
+        </article>`;
+    }
+
+    function render(){
+      const q = (search.value||'').toLowerCase();
+      const coll = filterCollection.value;
+      const yr = filterYear.value;
+      const st = filterStatus.value;
+      const items = window.ARTWORKS.filter(a => (
+        (!coll || a.collection === coll) &&
+        (!yr || String(a.year) === yr) &&
+        (!st || a.status === st) &&
+        (!q || `${a.title} ${a.medium} ${a.collection}`.toLowerCase().includes(q))
+      ));
+      grid.innerHTML = items.map(card).join('');
+      document.getElementById('empty').classList.toggle('hidden', items.length!==0);
+    }
+
+    [search, filterCollection, filterYear, filterStatus].forEach(el=> el.addEventListener('input', render));
+    setupFilters();
+    render();
+  </script>
+</body>
+</html>
