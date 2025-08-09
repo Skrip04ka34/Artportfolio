@@ -10,8 +10,12 @@
 <body class="bg-neutral-50 text-neutral-900 antialiased">
   <header class="sticky top-0 z-30 bg-white/80 backdrop-blur border-b">
     <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
-      <a href="./index.html" class="text-lg font-semibold">Daria Avdeeva</a>
+      <div class="flex items-center gap-3">
+        <div class="w-9 h-9 rounded-full bg-neutral-900 text-white grid place-content-center font-semibold">DA</div>
+        <a href="./index.html" class="text-lg font-semibold leading-tight">Daria Avdeeva</a>
+      </div>
       <nav class="hidden sm:flex items-center gap-6 text-sm">
+        <a href="./gallery.html" class="hover:opacity-70">All Works</a>
         <a href="./index.html#about" class="hover:opacity-70">About</a>
         <a href="./index.html#contact" class="hover:opacity-70">Contact</a>
       </nav>
@@ -24,7 +28,7 @@
         <h1 class="text-3xl font-bold">All Works</h1>
         <p class="text-sm text-neutral-600">Click any piece to view details.</p>
       </div>
-      <div class="flex gap-2">
+      <div class="flex flex-wrap gap-2">
         <input id="search" placeholder="Search title, medium…" class="px-3 py-2 border rounded-xl text-sm bg-white" />
         <select id="filterCollection" class="px-3 py-2 border rounded-xl text-sm bg-white"></select>
         <select id="filterYear" class="px-3 py-2 border rounded-xl text-sm bg-white"></select>
@@ -41,12 +45,11 @@
     <div id="empty" class="hidden text-center py-12 text-neutral-500">No artworks match your filters.</div>
   </main>
 
-  <!-- Load shared data -->
+  <!-- Load shared data FIRST -->
   <script src="./artworks.js"></script>
 
+  <!-- Page script -->
   <script>
-    // If you saved artworks.js as a separate file, include it with: <script src="./artworks.js"><\/script>
-
     const grid = document.getElementById('grid');
     const search = document.getElementById('search');
     const filterCollection = document.getElementById('filterCollection');
