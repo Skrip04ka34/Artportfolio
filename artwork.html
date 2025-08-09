@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Artwork — Daria Avdeeva</title>
+  <meta name="description" content="Artwork details" />
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-neutral-50 text-neutral-900 antialiased">
+  <header class="sticky top-0 z-30 bg-white/80 backdrop-blur border-b">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="./index.html" class="text-lg font-semibold">Daria Avdeeva</a>
+      <nav class="hidden sm:flex items-center gap-6 text-sm">
+        <a href="./gallery.html" class="hover:opacity-70">All Works</a>
+        <a href="./index.html#contact" class="hover:opacity-70">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 py-8 grid lg:grid-cols-2 gap-6 items-start">
+    <div class="aspect-[4/3] rounded-2xl overflow-hidden shadow bg-neutral-200">
+      <img id="img" alt="Artwork image" class="w-full h-full object-contain"/>
+    </div>
+    <div>
+      <a href="./gallery.html" class="text-sm underline">← Back to all works</a>
+      <h1 id="title" class="text-3xl font-bold mt-2"></h1>
+      <p id="meta" class="text-neutral-700 mt-1"></p>
+      <p id="price" class="mt-2 font-medium"></p>
+      <p id="desc" class="mt-4 text-neutral-700 whitespace-pre-line"></p>
+
+      <div class="mt-6 grid sm:grid-cols-2 gap-2">
+        <a id="inquire" class="px-4 py-2 rounded-2xl bg-neutral-900 text-white text-center" target="_blank">Inquire</a>
+        <a id="instagram" class="px-4 py-2 rounded-2xl border text-center" target="_blank">Instagram</a>
+      </div>
+    </div>
+  </main>
+
+  <!-- Load shared data -->
+  <!-- Paste artworks.js here in your real file or include via <script src="./artworks.js"></script> -->
+
+  <script>
+    // If you saved artworks.js separately, include it with: <script src="./artworks.js"><\/script>
+
+    function getParam(key){
+      const url = new URL(window.location.href);
+      return url.searchParams.get(key);
+    }
+
+    function renderArtwork(){
+      const id = getParam('id');
+      const a = (window.ARTWORKS||[]).find(x=>x.id===id);
+      if(!a){
+        document.body.innerHTML = '<div class="max-w-2xl mx-auto p-6 text-center">Artwork not found. <a href="./gallery.html" class="underline">Back to all works</a></div>';
+        return;
+      }
+      document.title = `${a.title} — ${window.ARTIST?.name||'Artist'}`;
+      document.getElementById('img').src = a.image;
+      document.getElementById('title').textContent = a.title;
+      document.getElementById('meta').textContent = `${a.medium} • ${a.size_cm} • ${a.year} • ${a.status}`;
+      document.getElementById('price').textContent = a.price;
+      document.getElementById('desc').textContent = a.description || '';
+      document.getElementById('inquire').href = `mailto:${window.ARTIST?.email}?subject=${encodeURIComponent('Inquiry: '+a.title)}`;
+      document.getElementById('instagram').href = `https://instagram.com/${(window.ARTIST?.instagram||'').replace('@','')}`;
+    }
+
+    renderArtwork();
+  </script>
+</body>
+</html>
