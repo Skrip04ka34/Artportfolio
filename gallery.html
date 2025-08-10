@@ -85,8 +85,11 @@
           <h3 class="font-medium">${a.title}</h3>
           <p class="text-sm text-neutral-600">${a.medium} • ${a.size_cm} • ${a.year}</p>
           <div class="mt-2 flex items-center justify-between text-sm">
-            <span class="font-medium">${formatAED(a.price)}</span>
-            <span class="px-2 py-0.5 rounded-full border">${a.size || ""}</span>
+            <span class="font-medium">${a.price || "AED —"}</span>
+            <div class="flex items-center gap-2">
+              ${a.collection ? `<span class="px-2 py-0.5 rounded-full border">${a.collection}</span>` : ``}
+              ${a.size ? `<span class="px-2 py-0.5 rounded-full border">${a.size}</span>` : ``}
+            </div>
           </div>
         </div>
       </a>
