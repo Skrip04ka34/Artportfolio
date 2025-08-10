@@ -71,8 +71,16 @@
       filterYear.innerHTML = `<option value="">All years</option>` + years.map(y=>`<option>${y}</option>`).join('');
     }
 
+    function formatAED(p){
+  if (p == null || p === "" || p === "—") return "AED —";
+  const num = String(p).replace(/[^\d.]/g, "");
+  if (!num) return "AED —";
+  const int = Math.round(parseFloat(num));
+  return "AED " + int.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+    
     function card(a){
-      return `
+  return `
     <article class="group rounded-2xl overflow-hidden border bg-white">
       <a href="./artwork.html?id=${encodeURIComponent(a.id)}" class="block">
         <div class="aspect-[4/3] bg-neutral-100 overflow-hidden">
@@ -82,16 +90,13 @@
           <h3 class="font-medium">${a.title}</h3>
           <p class="text-sm text-neutral-600">${a.medium} • ${a.size_cm} • ${a.year}</p>
           <div class="mt-2 flex items-center justify-between text-sm">
-            <span class="px-2 py-0.5 rounded-full border">${a.status}</span>
-            <div class="flex items-center gap-2">
-              <span class="px-2 py-0.5 rounded-full border">${a.size || ''}</span>
-              <span class="font-medium">${a.price}</span>
-            </div>
+            <span class="font-medium">${formatAED(a.price)}</span>
+            <span class="px-2 py-0.5 rounded-full border">${a.size || ""}</span>
           </div>
         </div>
       </a>
     </article>`;
-    }
+}
 
     function render(){
       const q = (search.value||'').toLowerCase();
