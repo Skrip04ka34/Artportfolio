@@ -74,13 +74,15 @@
   return "AED " + int.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
     
-    function card(a){
+   function card(a){
+  const focalClass = a.focal ? ('object-' + a.focal) : 'object-center';
   return `
     <article class="group rounded-2xl overflow-hidden border bg-white">
       <a href="./artwork.html?id=${encodeURIComponent(a.id)}" class="block">
         <div class="aspect-[4/3] bg-neutral-100 overflow-hidden">
-<img src="${a.image}" alt="${a.title}" class="w-full h-full object-cover group-hover:scale-105 transition"/>
-</div>
+          <img src="${a.image}" alt="${a.title}"
+               class="w-full h-full object-cover ${focalClass} group-hover:scale-105 transition"/>
+        </div>
         <div class="p-3">
           <h3 class="font-medium">${a.title}</h3>
           <p class="text-sm text-neutral-600">${a.medium} • ${a.size_cm} • ${a.year}</p>
