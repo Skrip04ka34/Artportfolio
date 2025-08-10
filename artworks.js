@@ -12,6 +12,7 @@ window.ARTWORKS = [
     status: "Available",
     price: "AED 5,000",
     image: "./images/Alfred_On_A_Blue_Bag.jpg",
+    focal: "top",
     location: "Dubai",
     description: "Alfred on a Blue Bag is a captivating oil painting capturing the essence of feline anticipation. Alfred, the artist's cat, perches on a textured blue bag, a ball nestled between his paws. The artist's skillful rendering of Alfred's fur invites tactile exploration. Alfred's eager expression, directed towards the unseen owner, conveys anticipation, establishing a connection with the viewer. The blue bag, with its varied shades, creates a dynamic surface, complemented by strokes of yellow and orange in the background. This masterpiece blends texture, color, and emotion to evoke the shared experiences of pet ownership and companionship."
    
@@ -41,6 +42,7 @@ window.ARTWORKS = [
     status: "Available",
     price: "AED 3,000",
     image: "./images/Bowl_Of_Strawberries.jpg",
+    focal: "20% 50%",
     location: "Dubai",
     description: "A Bowl of Strawberries is a tender portrayal of simplicity and warmth. In this painting, a hand rests gently on a lap beside a bowl of strawberries. The artwork exudes a delicate and feminine aura, with soft and effortless strokes that seem to flow seamlessly, as if painted in one graceful breath. The atmosphere is airy and light, reminiscent of a summer day when strawberries are freshly picked—each stroke capturing the essence of that fleeting moment of sweetness and joy. It's a visual symphony of tranquility and nostalgia, inviting viewers to bask in the gentle embrace of nature's beauty and the simple pleasures of life."
   },
@@ -55,6 +57,7 @@ window.ARTWORKS = [
     status: "Available",
     price: "AED 5,000",
     image: "./images/Bowtie.jpg",
+    focal: "bottom",
     location: "Dubai",
     description: "Bowtie is a captivating oil portrait that deftly explores color, symbolism, and cultural nuances. The central figure, a young ginger man in a dark green blazer, captivates with his direct gaze. The focal point is a butterfly-shaped bowtie, imbued with linguistic subtleties across European languages. Vibrant orange hair against the dark blazer creates a striking contrast, echoed in the nuanced background palette. This interplay of warm and cool tones creates a harmonious yet dynamic composition. Bowtie not only adds whimsy but also prompts contemplation of cultural connotations, showcasing the artist's technical finesse in creating a multifaceted portrait."
    
