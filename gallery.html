@@ -89,14 +89,15 @@
           <div class="mt-2 flex items-center justify-between text-sm">
             <span class="font-medium">${a.price || "AED —"}</span>
             <div class="flex items-center gap-2">
-              ${a.collection ? `<span class="px-2 py-0.5 rounded-full border">${a.collection}</span>` : ``}
-              ${a.size ? `<span class="px-2 py-0.5 rounded-full border">${a.size}</span>` : ``}
+              ${a.collection ? '<span class="px-2 py-0.5 rounded-full border">' + a.collection + '</span>' : ''}
+              ${a.size ? '<span class="px-2 py-0.5 rounded-full border">' + a.size + '</span>' : ''}
             </div>
           </div>
         </div>
       </a>
     </article>`;
 }
+
 
     function render(){
       const q = (search.value||'').toLowerCase();
