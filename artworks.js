@@ -73,7 +73,7 @@ window.ARTWORKS = [
     status: "Available",
     price: "AED 5,000",
     image: "./images/Boxing_Gloves.png",
-    zoom: 1.2, 
+    zoom: 1.3, 
     location: "Dubai",
     description: "Boxing Gloves captures a moment of release and triumph. The silver boxing gloves and the black wraps are scattered around, traces of a fierce battle or intense practice. These objects echo a deeper narrative—of shedding rage and fear, of conquering inner battles. The neutral palette of blacks, greys, and beiges fosters a serene atmosphere, reflecting the calm after an adrenaline rush. It's a visual play of contrasts: the gleaming silver against muted tones, the random placement suggesting order found within chaos. Boxing Gloves invites viewers to feel the cathartic power of overcoming fears and embracing newfound strength."
   },
@@ -322,7 +322,7 @@ window.ARTWORKS = [
     status: "Available",
     price: "AED 2,000",
     image: "./images/Hand_with_Clementine.png",
-    zoom: 1.2,
+    zoom: 1.4,
     location: "Dubai",
     description: "Hand Holding a Tangerine is a painting that evokes a sense of quiet intimacy and connection between the human form and nature's vibrant bounty. The canvas is washed in soft white tones, creating an almost ethereal backdrop that allows the central figure—the hand—holding a tangerine, to emerge as the focal point. The hand is depicted in a graceful and yet purposeful manner, fingers gently cupping the fruit, its stem held delicately at the top, offering a sense of care and reverence. The tangerine itself bursts with vivid orange, its color standing out against the pale background with a warm, almost glowing intensity. This careful contrast between the white and the vibrant orange symbolizes a moment of balance—between the calm of human touch and the radiant energy of life's simplest pleasures. The brushwork is soft yet deliberate, capturing the smooth texture of the hand while allowing the tangerine's contours to appear almost tactile, as though one could reach out and feel its natural beauty. The piece invites contemplation on the fragility and fleeting nature of everyday moments, emphasizing how a simple gesture, like holding a piece of fruit, can become a profound expression of life's delicate balance between nature and humanity."
   },
@@ -666,7 +666,7 @@ window.ARTWORKS = [
     status: "Available",
     price: "AED 5,000",
     image: "./images/The_Impact.png",
-    zoom: 1.2,
+    zoom: 1.3,
     location: "Dubai",
     description: "Two fighters are locked in a moment of physical intensity—one striking, the other absorbing. Muscles tighten, bodies twist, and within this single frame, time seems to hold its breath. The circular canvas heightens the sense of enclosure, drawing the viewer into a world where force, focus, and fatigue converge. This is not just about sport or violence—it's about the emotional weight behind confrontation. The red glove lands with purpose, but the deeper impact is not only physical. There's something almost tender in the vulnerability of the figure who receives the blow—head lowered, body exposed, but still standing. The Impact explores the duality of strength and fragility. It's about the roles we take on in conflict, the moments where control shifts, and how those moments leave a mark—seen and unseen. Whether read as a literal fight or a metaphor for struggle, the piece asks us to consider what it means to endure, to resist, and to respond."
   },
@@ -769,7 +769,7 @@ window.ARTWORKS = [
     status: "Available",
     price: "AED 3,000",
     image: "./images/Winterberry.png",
-    zoom: 1.2,
+    zoom: 1.3,
     location: "Dubai",
     description: "In this painting, winterberries come to life against a tranquil, snow-dusted backdrop, capturing the serene beauty of the colder months. The scene is dominated by clusters of vibrant red berries, their deep hue standing out in stark contrast to the muted tones of the surrounding branches and snow. The delicate, winding brown branches stretch across the canvas, their twists and turns evoking the quiet elegance of winter's skeletal trees. The berries, glistening with frost, appear almost weightless, adding a pop of color to the otherwise subdued, monochromatic scene. The predominant white hues of the canvas represent the purity of fresh snow and the stillness of winter's embrace. Soft brushstrokes of white blend across the background, creating a soft, ethereal effect that gives the painting a sense of peaceful quiet. The snow seems to envelop the berries, their vibrant red tones standing as beacons of life and color in the midst of winter's calm. This painting beautifully conveys the resilience and quiet strength of nature during the colder months. The stark simplicity of the composition is both peaceful and captivating, inviting the viewer to pause and reflect on the delicate beauty found in the small, often overlooked moments of nature. The winterberries symbolize the endurance of life amidst the chill and stillness of winter."
   },
