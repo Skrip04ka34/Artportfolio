@@ -53,7 +53,15 @@
 
 <!-- Load shared data (must come BEFORE the script below) -->
 <script src="./artworks.js"></script>
-
+<script>
+  function formatAED(p){
+    if (p == null || p === "" || p === "—") return "AED —";
+    const num = String(p).replace(/[^\d.]/g, "");
+    if (!num) return "AED —";
+    const int = Math.round(parseFloat(num));
+    return "AED " + int.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  }
+</script>
 <script>
   // Pick exactly these 3 by title
   const PICKS = [
@@ -79,8 +87,8 @@
             <h4 class="font-medium">${a.title}</h4>
             <p class="text-sm text-neutral-600">${a.medium} • ${a.size_cm} • ${a.year}</p>
             <div class="mt-2 flex items-center justify-between text-sm">
-              <span class="px-2 py-0.5 rounded-full border">${a.status || "Available"}</span>
-              <span class="font-medium">${a.price || "—"}</span>
+              <span class="font-medium">${formatAED(a.price)}</span>
+              <span class="px-2 py-0.5 rounded-full border">${a.size || ""}</span>
             </div>
           </div>
         </a>
