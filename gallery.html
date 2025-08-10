@@ -32,12 +32,6 @@
         <input id="search" placeholder="Search title, medium…" class="px-3 py-2 border rounded-xl text-sm bg-white" />
         <select id="filterCollection" class="px-3 py-2 border rounded-xl text-sm bg-white"></select>
         <select id="filterYear" class="px-3 py-2 border rounded-xl text-sm bg-white"></select>
-        <select id="filterStatus" class="px-3 py-2 border rounded-xl text-sm bg-white">
-          <option value="">All statuses</option>
-          <option>Available</option>
-          <option>Sold</option>
-          <option>Reserved</option>
-        </select>
         <select id="filterSize" class="px-3 py-2 border rounded-xl text-sm bg-white">
           <option value="">All sizes</option>
           <option>Small</option>
@@ -61,7 +55,6 @@
     const search = document.getElementById('search');
     const filterCollection = document.getElementById('filterCollection');
     const filterYear = document.getElementById('filterYear');
-    const filterStatus = document.getElementById('filterStatus');
     const filterSize = document.getElementById('filterSize');
 
     function setupFilters(){
@@ -102,12 +95,10 @@
       const q = (search.value||'').toLowerCase();
       const coll = filterCollection.value;
       const yr = filterYear.value;
-      const st = filterStatus.value;
       const sz = filterSize.value;
       const items = window.ARTWORKS.filter(a => (
         (!coll || a.collection === coll) &&
         (!yr || String(a.year) === yr) &&
-        (!st || a.status === st) &&
         (!sz || (a.size || '') === sz) &&
         (!q || `${a.title} ${a.medium} ${a.collection}`.toLowerCase().includes(q))
       ));
@@ -115,7 +106,7 @@
       document.getElementById('empty').classList.toggle('hidden', items.length!==0);
     }
 
-    [search, filterCollection, filterYear, filterStatus, filterSize].forEach(el=> el.addEventListener('input', render));
+    [search, filterCollection, filterYear, filterSize].forEach(el=> el.addEventListener('input', render));
     setupFilters();
     render();
   </script>
