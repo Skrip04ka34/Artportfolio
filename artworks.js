@@ -14,6 +14,7 @@ window.ARTWORKS = [
     image: "./images/Alfred_On_A_Blue_Bag.jpg",
     location: "Dubai",
     description: "Alfred on a Blue Bag is a captivating oil painting capturing the essence of feline anticipation. Alfred, the artist's cat, perches on a textured blue bag, a ball nestled between his paws. The artist's skillful rendering of Alfred's fur invites tactile exploration. Alfred's eager expression, directed towards the unseen owner, conveys anticipation, establishing a connection with the viewer. The blue bag, with its varied shades, creates a dynamic surface, complemented by strokes of yellow and orange in the background. This masterpiece blends texture, color, and emotion to evoke the shared experiences of pet ownership and companionship."
+    focal: "top" 
   },
   {
     id: "a2",
@@ -56,6 +57,7 @@ window.ARTWORKS = [
     image: "./images/Bowtie.jpg",
     location: "Dubai",
     description: "Bowtie is a captivating oil portrait that deftly explores color, symbolism, and cultural nuances. The central figure, a young ginger man in a dark green blazer, captivates with his direct gaze. The focal point is a butterfly-shaped bowtie, imbued with linguistic subtleties across European languages. Vibrant orange hair against the dark blazer creates a striking contrast, echoed in the nuanced background palette. This interplay of warm and cool tones creates a harmonious yet dynamic composition. Bowtie not only adds whimsy but also prompts contemplation of cultural connotations, showcasing the artist's technical finesse in creating a multifaceted portrait."
+    focal: "top" 
   },
   {
     id: "a5",
@@ -84,6 +86,7 @@ window.ARTWORKS = [
     image: "./images/By_The_Pool.jpg",
     location: "Dubai",
     description: "By the Pool is an evocative oil painting capturing a sun-drenched moment of leisure. A young girl stands confidently in a vibrant blue swimsuit at the canvas's center, partially shaded from the noonday sun. The background, a subtle swimming pool tile pattern, blends harmoniously with her attire, creating visual unity. Dramatic contrasts in values emphasize the intensity of the sun, casting a slight sunburn on the girl. Her vibrant ginger hair serves as a bright focal point against the pool-blue surroundings, enhancing the painting's luminosity. The interplay of warm and cool tones immerses viewers in the sensation of a hot summer day, evoking the shimmering heat. With an aura of calmness and confidence, the composition invites viewers to share in the tranquil joy of the moment, celebrating the beauty of sunlight and leisure in a captivating, immersive experience."
+    focal: "top" 
   },
   {
     id: "a7",
