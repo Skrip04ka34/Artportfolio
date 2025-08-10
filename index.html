@@ -31,7 +31,7 @@
         <h2 class="text-3xl sm:text-5xl font-bold tracking-tight mb-4">Original Oil Paintings<br><span class="text-neutral-500 font-light">by Daria Avdeeva</span></h2>
         <p class="text-neutral-600 mb-6">A thoughtfully curated portfolio showcasing original oil paintings on canvas, each reflecting a unique artistic vision and meticulous craftsmanship. Explore high-resolution images with close-up details, discover background stories and specifications for every piece, and easily submit inquiries or commission requests tailored to your preferences.</p>
         <div class="flex gap-3">
-          <a href="#work" class="px-4 py-2 rounded-2xl bg-neutral-900 text-white hover:opacity-90">Explore works</a>
+          <a href="./gallery.html" class="px-4 py-2 rounded-2xl bg-neutral-900 text-white hover:opacity-90">Explore works</a>
           <a href="#contact" class="px-4 py-2 rounded-2xl border hover:bg-neutral-100">Commission</a>
         </div>
       </div>
@@ -42,32 +42,58 @@
   </section>
 
   <section id="work" class="max-w-6xl mx-auto px-4 py-6">
-    <h3 class="text-2xl font-semibold mb-4">Works</h3>
-    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+  <div class="flex items-center justify-between mb-4">
+    <h3 class="text-2xl font-semibold">Works</h3>
+    <a href="./gallery.html" class="text-sm underline">View all →</a>
+  </div>
+
+  <!-- Grid will be rendered here -->
+  <div id="home-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+</section>
+
+<!-- Load shared data (must come BEFORE the script below) -->
+<script src="./artworks.js"></script>
+
+<script>
+  // Pick exactly these 3 by title
+  const PICKS = [
+    "Monkeys Everywhere - The Dance of Instinct",
+    "Morning Coffee",
+    "The Silent Sentinel"
+  ];
+
+  // Quick lookup by normalized title
+  const byTitle = new Map((window.ARTWORKS || []).map(a => [String(a.title).trim().toLowerCase(), a]));
+  const selected = PICKS.map(t => byTitle.get(t.trim().toLowerCase())).filter(Boolean);
+
+  const grid = document.getElementById('home-grid');
+
+  function card(a){
+    return `
       <article class="group rounded-2xl overflow-hidden border bg-white">
-        <div class="aspect-[4/3] bg-neutral-100 overflow-hidden">
-          <img src="./images/MonkeysEverywhere.jpg" alt="Monkeys Everywhere - The Dance of Instinct" class="w-full h-full object-cover"/>
-        </div>
-        <div class="p-3">
-          <h4 class="font-medium">Monkeys Everywhere - The Dance of Instinct</h4>
-          <p class="text-sm text-neutral-600">Oil on canvas • 120 × 60 cm • 2025</p>
-          <p class="mt-2 text-neutral-600 text-sm">In “Monkeys Everywhere - The Dance of Instinct” the viewer is drawn into a vivid, almost surreal arboreal world—where chaos and harmony coexist... </p>
-          <p class="mt-2 font-medium">AED 10,000</p>
-        </div>
+        <a href="./artwork.html?id=${encodeURIComponent(a.id)}" class="block">
+          <div class="aspect-[4/3] bg-neutral-100 overflow-hidden">
+            <img src="${a.image}" alt="${a.title}" class="w-full h-full object-cover group-hover:scale-105 transition"/>
+          </div>
+          <div class="p-3">
+            <h4 class="font-medium">${a.title}</h4>
+            <p class="text-sm text-neutral-600">${a.medium} • ${a.size_cm} • ${a.year}</p>
+            <div class="mt-2 flex items-center justify-between text-sm">
+              <span class="px-2 py-0.5 rounded-full border">${a.status || "Available"}</span>
+              <span class="font-medium">${a.price || "—"}</span>
+            </div>
+          </div>
+        </a>
       </article>
-      <article class="group rounded-2xl overflow-hidden border bg-white">
-        <div class="aspect-[4/3] bg-neutral-100 overflow-hidden">
-         <img src="./images/Chasing-Luck_res.jpg" alt="Chasing Luck" class="w-full h-full object-cover">
-        </div>
-        <div class="p-3">
-          <h4 class="font-medium">Chasing Luck</h4>
-          <p class="text-sm text-neutral-600">Oil on canvas • 120 × 90 cm • 2023</p>
-          <p class="mt-2 text-neutral-600 text-sm">"Chasing Luck" captures the perpetual pursuit of fortune. Two dynamically posed bunnies engage in a playful, circular chase within a sunlit meadow...</p>
-          <p class="mt-2 font-medium">AED 10,000</p>
-        </div>
-      </article>
-    </div>
-  </section>
+    `;
+  }
+
+  // Render — if any title not found, we just skip it
+  if (selected.length === 0) {
+    console.warn("No matching artworks found for homepage picks. Check titles in artworks.js.");
+  }
+  grid.innerHTML = selected.map(card).join("");
+</script>
 
   <section id="about" class="bg-white border-t">
     <div class="max-w-6xl mx-auto px-4 py-12">
