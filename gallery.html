@@ -74,8 +74,7 @@
   return "AED " + int.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
     
-    function card(a){
-  // Map only the supported Tailwind object-position classes
+  function card(a){
   const focalMap = {
     top:    'object-top',
     bottom: 'object-bottom',
@@ -85,18 +84,23 @@
   };
 
   const f = (a.focal || 'center').toLowerCase().trim();
-  const isPercent = /%/.test(f) || /\d/.test(f);      // e.g., "20% 30%"
-  const focalClass = isPercent ? 'object-center'      // class still needed; style will override
-                              : (focalMap[f] || 'object-center');
-  const focalStyle = isPercent ? `style="object-position:${f};"` : '';
+  const isPercent = /%/.test(f) || /\d/.test(f);
+  const focalClass = isPercent ? 'object-center' : (focalMap[f] || 'object-center');
+  const focalStyle = isPercent ? `object-position:${f};` : '';
+
+  const zoomValue = a.zoom || 1; // default 1 means no zoom
+  const transformStyle = zoomValue !== 1 ? `transform:scale(${zoomValue});` : '';
+
+  const styleAttr = (focalStyle || transformStyle)
+    ? `style="${focalStyle} ${transformStyle}"` : '';
 
   return `
     <article class="group rounded-2xl overflow-hidden border bg-white">
       <a href="./artwork.html?id=${encodeURIComponent(a.id)}" class="block">
         <div class="aspect-[4/3] bg-neutral-100 overflow-hidden">
           <img src="${a.image}" alt="${a.title}"
-               class="w-full h-full object-cover ${focalClass} group-hover:scale-105 transition"
-               ${focalStyle}/>
+               class="w-full h-full object-cover ${focalClass} group-hover:scale-${zoomValue * 1.1} transition"
+               ${styleAttr}/>
         </div>
         <div class="p-3">
           <h3 class="font-medium">${a.title}</h3>
