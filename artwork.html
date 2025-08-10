@@ -46,34 +46,58 @@
   <script src="./artworks.js"></script>
 
   <!-- Page script -->
-  <script>
-    function getParam(key){
-      const url = new URL(window.location.href);
-      return url.searchParams.get(key);
+<script>
+  function getParam(key){
+    const url = new URL(window.location.href);
+    return url.searchParams.get(key);
+  }
+
+  // helper: join non-empty bits with •
+  function metaLine(parts){
+    return parts.filter(Boolean).join(' • ');
+  }
+
+  function renderArtwork(){
+    const id = getParam('id');
+    const a = (window.ARTWORKS||[]).find(x=>x.id===id);
+
+    if(!a){
+      document.body.innerHTML = '<div class="max-w-2xl mx-auto p-6 text-center">Artwork not found. <a href="./gallery.html" class="underline">Back to all works</a></div>';
+      return;
     }
 
-    function renderArtwork(){
-      const id = getParam('id');
-      const a = (window.ARTWORKS||[]).find(x=>x.id===id);
+    document.title = `${a.title} — ${window.ARTIST?.name || 'Artist'}`;
 
-      if(!a){
-        document.body.innerHTML = '<div class="max-w-2xl mx-auto p-6 text-center">Artwork not found. <a href="./gallery.html" class="underline">Back to all works</a></div>';
-        return;
-      }
+    const imgEl = document.getElementById('img');
+    imgEl.src = a.image;
+    imgEl.alt = a.title || 'Artwork image';
 
-      document.title = `${a.title} — ${window.ARTIST?.name || 'Artist'}`;
-      document.getElementById('img').src = a.image;
-      document.getElementById('title').textContent = a.title;
-      document.getElementById('meta').textContent =  `${a.collection ? a.collection + ' • ' : ''}${a.medium} • ${a.size_cm}${a.size ? ' • ' + a.size : ''} • ${a.year}`;
-      document.getElementById('price').textContent = a.price;
-      document.getElementById('badges').innerHTML = `${a.collection ? `<span class="px-2 py-0.5 rounded-full border text-sm">${a.collection}</span>` : ``}  ${a.size ? `<span class="px-2 py-0.5 rounded-full border text-sm">${a.size}</span>` : ``}
-`;
-      document.getElementById('desc').innerHTML = a.description || '';
-      document.getElementById('inquire').href = `mailto:${window.ARTIST?.email}?subject=${encodeURIComponent('Inquiry: '+a.title)}`;
-      document.getElementById('instagram').href = `https://instagram.com/${(window.ARTIST?.instagram||'').replace('@','')}`;
-    }
+    document.getElementById('title').textContent = a.title;
 
-    renderArtwork();
-  </script>
+    // clean meta: Collection • Medium • Size (cm) • Size (label) • Year
+    document.getElementById('meta').textContent = metaLine([
+      a.collection,
+      a.medium,
+      a.size_cm,
+      a.size,
+      a.year
+    ]);
+
+    document.getElementById('price').textContent = a.price || 'AED —';
+
+    document.getElementById('badges').innerHTML = [
+      a.collection ? `<span class="px-2 py-0.5 rounded-full border text-sm">${a.collection}</span>` : '',
+      a.size ? `<span class="px-2 py-0.5 rounded-full border text-sm">${a.size}</span>` : ''
+    ].filter(Boolean).join(' ');
+
+    // Render rich text if you use <strong>/<em> in descriptions
+    document.getElementById('desc').innerHTML = a.description || '';
+
+    document.getElementById('inquire').href = `mailto:${window.ARTIST?.email}?subject=${encodeURIComponent('Inquiry: '+(a.title||''))}`;
+    document.getElementById('instagram').href = `https://instagram.com/${(window.ARTIST?.instagram||'').replace('@','')}`;
+  }
+
+  renderArtwork();
+</script>
 </body>
 </html>
