@@ -57,7 +57,7 @@ window.ARTWORKS = [
     status: "Available",
     price: "AED 5,000",
     image: "./images/Bowtie.jpg",
-    focal: "bottom",
+    focal: "top",
     location: "Dubai",
     description: "Bowtie is a captivating oil portrait that deftly explores color, symbolism, and cultural nuances. The central figure, a young ginger man in a dark green blazer, captivates with his direct gaze. The focal point is a butterfly-shaped bowtie, imbued with linguistic subtleties across European languages. Vibrant orange hair against the dark blazer creates a striking contrast, echoed in the nuanced background palette. This interplay of warm and cool tones creates a harmonious yet dynamic composition. Bowtie not only adds whimsy but also prompts contemplation of cultural connotations, showcasing the artist's technical finesse in creating a multifaceted portrait."
    
@@ -73,6 +73,7 @@ window.ARTWORKS = [
     status: "Available",
     price: "AED 5,000",
     image: "./images/Boxing_Gloves.png",
+    zoom: 1.2, 
     location: "Dubai",
     description: "Boxing Gloves captures a moment of release and triumph. The silver boxing gloves and the black wraps are scattered around, traces of a fierce battle or intense practice. These objects echo a deeper narrative—of shedding rage and fear, of conquering inner battles. The neutral palette of blacks, greys, and beiges fosters a serene atmosphere, reflecting the calm after an adrenaline rush. It's a visual play of contrasts: the gleaming silver against muted tones, the random placement suggesting order found within chaos. Boxing Gloves invites viewers to feel the cathartic power of overcoming fears and embracing newfound strength."
   },
@@ -87,6 +88,7 @@ window.ARTWORKS = [
     status: "Available",
     price: "AED 5,000",
     image: "./images/By_The_Pool.jpg",
+    focal: "top",
     location: "Dubai",
     description: "By the Pool is an evocative oil painting capturing a sun-drenched moment of leisure. A young girl stands confidently in a vibrant blue swimsuit at the canvas's center, partially shaded from the noonday sun. The background, a subtle swimming pool tile pattern, blends harmoniously with her attire, creating visual unity. Dramatic contrasts in values emphasize the intensity of the sun, casting a slight sunburn on the girl. Her vibrant ginger hair serves as a bright focal point against the pool-blue surroundings, enhancing the painting's luminosity. The interplay of warm and cool tones immerses viewers in the sensation of a hot summer day, evoking the shimmering heat. With an aura of calmness and confidence, the composition invites viewers to share in the tranquil joy of the moment, celebrating the beauty of sunlight and leisure in a captivating, immersive experience."
     
@@ -102,6 +104,7 @@ window.ARTWORKS = [
     status: "Available",
     price: "AED 5,000",
     image: "./images/Changes.jpg",
+    focal: "top",
     location: "Dubai",
     description: "Changes part of the ongoing series Paintings with Scars eloquently portrays a transformative journey of self-discovery and artistic evolution. Layering new paint over older works symbolizes the artist's metamorphosis from youth to maturity. The term scars refers to textures and scratches on the canvas—remnants of past challenges embraced rather than concealed. These imperfections coexist with new layers, forming a tapestry of beauty and resilience. Changes invites viewers to reflect on their own journeys, appreciating the value in marks left by time and experience. It stands as a visual metaphor for personal growth, empowering and inspiring all who encounter it."
   },
@@ -116,6 +119,7 @@ window.ARTWORKS = [
     status: "Available",
     price: "AED 8,000",
     image: "./images/Chasing-Luck_res.jpg",
+    focal: "bottom",
     location: "Dubai",
     description: "Chasing Luck captures the perpetual pursuit of fortune. Two dynamically posed bunnies engage in a playful, circular chase within a sunlit meadow. Each bunny mirrors the diverse forms luck can assume, as for each person the concept of luck is different. The meadow's vibrant movement, depicted through chaotic brushstrokes, lends an energetic quality. The interplay of textures and contrasts invites exploration of a timeless pursuit of elusive fortunes."
   },
@@ -130,6 +134,7 @@ window.ARTWORKS = [
     status: "Available",
     price: "AED 5,000",
     image: "./images/Clementine_Branch.jpg",
+    focal: "top",
     location: "Dubai",
     description: "In this painting duo, the citrus fruits have golden yellows echoing the sun's warmth, as well as shades of bright oranges and burnt browns. These warm tones intensify the summer heat and haze, creating an atmosphere that feels almost tangible. Dynamic brushstrokes add movement and energy, infusing the compositions with life. The contrast between the simple yet vivid fruits and the nuanced background creates a delicate interplay, inviting viewers to savor the sensory richness of a sun-kissed summer day."
   },
@@ -200,6 +205,7 @@ window.ARTWORKS = [
     status: "Available",
     price: "AED 25,000",
     image: "./images/Crocodile.jpg",
+    focal: "left",
     location: "Dubai",
     description: "This painting portrays a crocodile in striking realism, stretched across a 250 × 100 cm canvas. Depicted with meticulous attention to detail, the creature's rough, armored skin is brought to life through a palette of nuanced tones: beige captures the dryness of sunbaked scales, coral subtly warms the underbelly and shadows, while teal pools in the reflections of imagined marsh waters. Indigo weaves through the deeper contours and creases, enhancing the sense of depth and age in the animal's form, and gray ties the composition together, grounding it in stark naturalism. Every scale, claw, and ridge is painted with lifelike precision, presenting the crocodile not as a symbol or metaphor—but as a force of nature, still and silent, yet undeniably powerful."
   },
@@ -214,6 +220,7 @@ window.ARTWORKS = [
     status: "Available",
     price: "AED 6,000",
     image: "./images/Danny_Reading.jpg",
+    focal: "top",
     location: "Dubai",
     description: "Danny Reading intricately captures a scene of domestic tranquility in oil-on-canvas. The artist's husband sits on a plush couch, bathed in gentle lamp light, surrounded by arranged pillows and a snug blanket. Light and shadow create striking contrasts, accentuating the artistically rendered, tucked legs. Warm tones infuse the palette, enhancing coziness, while subtle red and violet undertones deepen emotional depth. The relaxed background directs focus to the figure, maintaining its prominence. Drawing elements are purposefully casual, fostering a comfortable atmosphere. This nuanced artwork skillfully balances meticulous technique with artful spontaneity, conveying both physical and emotional dimensions of the intimate moment."
   },
@@ -242,6 +249,7 @@ window.ARTWORKS = [
     status: "Available",
     price: "AED 8,000",
     image: "./images/Freesias_During_Golden_Hour.jpg",
+    focal: "top",
     location: "Dubai",
     description: "In Freesias During The Golden Hour the artist skillfully portrays a floral reverie illuminated by the warm embrace of twilight. Soft pastels create a visual symphony, with delicate freesias blooming vibrantly against the setting sun's backdrop. A central, textured vase enhances balance, drawing attention to the intricate beauty of the flowers. Full-bloom freesias boast captivating colors, echoing the twilight hues. Graceful stems guide the viewer's gaze, while meticulous brushstrokes capture delicate details and play of light. This artwork is a testament to the artist's mastery in conveying nature's ephemeral beauty and the allure of fleeting moments."
   },
@@ -256,6 +264,7 @@ window.ARTWORKS = [
     status: "Available",
     price: "AED 4,000",
     image: "./images/Girl_In_SwimSuit.jpg",
+    focal: "top",
     location: "Dubai",
     description: "In Girl in a Swimsuit the artist achieves a delicate balance, akin to graceful sketchwork. The canvas portrays a girl seated by a pool, legs submerged, amidst a warm, sun-soaked ambiance. Burnt orange tones intensify the heat sensation. Linework dominates, resembling a drawing narrative. The green-blue swimsuit harmonizes with the pool's blue shades, hinting at a gentle breeze. The figure, lost in introspection, avoids eye contact, fostering privacy. Refreshing simplicity, devoid of intricate details, enhances the serene moment. 'Girl in a Swimsuit' skillfully captures tranquil poolside essence, evoking warmth and contemplative solitude."
   },
@@ -298,6 +307,7 @@ window.ARTWORKS = [
     status: "Available",
     price: "AED 3,000",
     image: "./images/Green_Shoes.jpg",
+    focal: "bottom",
     location: "Dubai",
     description: "Green Shoes and Red Shoes is a compelling narrative around a pair of shoes, symbolizing unique life journey. The differences in tones with contrasting pinks, blues, purples, greens and reds mirror life's complexities and signifies individuality and hidden stories within paths."
   },
@@ -312,6 +322,7 @@ window.ARTWORKS = [
     status: "Available",
     price: "AED 2,000",
     image: "./images/Hand_with_Clementine.png",
+    zoom: 1.2,
     location: "Dubai",
     description: "Hand Holding a Tangerine is a painting that evokes a sense of quiet intimacy and connection between the human form and nature's vibrant bounty. The canvas is washed in soft white tones, creating an almost ethereal backdrop that allows the central figure—the hand—holding a tangerine, to emerge as the focal point. The hand is depicted in a graceful and yet purposeful manner, fingers gently cupping the fruit, its stem held delicately at the top, offering a sense of care and reverence. The tangerine itself bursts with vivid orange, its color standing out against the pale background with a warm, almost glowing intensity. This careful contrast between the white and the vibrant orange symbolizes a moment of balance—between the calm of human touch and the radiant energy of life's simplest pleasures. The brushwork is soft yet deliberate, capturing the smooth texture of the hand while allowing the tangerine's contours to appear almost tactile, as though one could reach out and feel its natural beauty. The piece invites contemplation on the fragility and fleeting nature of everyday moments, emphasizing how a simple gesture, like holding a piece of fruit, can become a profound expression of life's delicate balance between nature and humanity."
   },
@@ -424,6 +435,7 @@ window.ARTWORKS = [
     status: "Available",
     price: "AED 5,000",
     image: "./images/Limitless.jpg",
+    focal: "right",
     location: "Dubai",
     description: "Everything starts from childhood - dreams and ambitions, but most importantly- the future. Children carry on the collective memory of their ancestors, and enrich it by adding their own experiences to it. This painting is about remembering the heritage, respecting the past, but also reaching for the stars and not being afraid to push the borders.\n\nMany of the UAE's achievements are known worldwide, and many are yet to come. Perhaps one of the children that is depicted on the painting is the one to design the new tallest building on the globe, or the first woman to go on an expedition to Mars.  The children are presented not as people who need to learn about the world, but rather as the ones that will lead nations and sculpt the future. They are fearless, imaginative and strive for more. Some children say and do the most unexpected things, and have the most incredible ideas that an adult would never think of. They are bold, and curious to see what the universe has to offer. This is captured in the girl's personality, she is a dreamer who knows what she wants and is not giving up. The boy's character is a lot more reserved, thoughtful, a true mathematician. He is carefully adding sand blocks, making sure the \"building\" doesn't fall.  He is a visionary and finds inspiration in nature.\n\nThe setting of the painting is the beach, as the sea green-blue and sandy ochres create a pleasant combination of colors and have a direct association with timelessness and serenity. Also, the beach is the place where children love to play, build sandcastles and it serves as a reference to a \"happy place\" in many of adults' memories. The light is coming from the top, like it would be around 12pm, hinting that the sun is there to give visibility and light to all future discoveries and achievements. The colors are vivid with dramatic shadows to emphasize the direction of the light. The painting includes some cultural elements like the colors of the UAE flag, the boy's clothes and the little toy camels in the bucket, suggesting that no matter how far the progress may go, there will always be a traditional flavor in the society.\n\nThe technique is a mixture of two amazing art schools, Russian and Italian. The Russian technique is light and airy. Italian, on the other hand, is about contrast and browns. Merging the two helped me achieve the effortless atmosphere and have beautiful flesh tones. Some modern effects give the painting an interesting twist, as if they happened by accident."
   },
@@ -466,6 +478,7 @@ window.ARTWORKS = [
     status: "Available",
     price: "AED 7,000",
     image: "./images/More_Passion.jpg",
+    focal: "top",
     location: "Dubai",
     description: "More Passion is immersed entirely in hues of red, evoking a sense of intensity and excitement. At its heart, a woman extends her arms, covered with either red paint or gloves that seamlessly merge into her skin tone. The transition signifies a fusion of passion with the essence of self. Her hands, textured with bold, impulsive strokes, symbolize the raw energy and vitality of passionate actions. Hands, being our primary explorers of the world, convey sensitivity and expressiveness, capturing the essence of human connection and the profound depth of emotions conveyed through touch. The painting celebrates the vibrant dynamism of passion, embracing its transformative power in our lives."
   },
@@ -480,6 +493,7 @@ window.ARTWORKS = [
     status: "Available",
     price: "AED 7,000",
     image: "./images/Morning_Coffee.jpg",
+    focal: "top",
     location: "Dubai",
     description: "Morning Coffee is not just a portrait of one woman, but of all women. It captures a universal ritual—the quiet act of preparing to face the world. The mud mask becomes more than skincare; it's symbolic armor, a gesture of care, transformation, and control. Even in solitude, even before the day begins, there is intention: to be ready, to be presentable, to carry oneself with dignity. The painting reflects the emotional labor behind composure—the internal strength required to present a calm surface despite whatever might lie beneath. The red mug, warm and vibrant, becomes a metaphor for energy, identity, and the fire held within. This is a portrait of quiet resilience. A reminder that strength often starts in the smallest of rituals—and that behind every polished face is a woman who chose to begin again.\n\n."
   },
@@ -550,6 +564,7 @@ window.ARTWORKS = [
     status: "Available",
     price: "AED 3,000",
     image: "./images/Red_Shoes.jpg",
+    focal: "bottom",
     location: "Dubai",
     description: "Green Shoes and Red Shoes is a compelling narrative around a pair of shoes, symbolizing unique life journey. The differences in tones with contrasting pinks, blues, purples, greens and reds mirror life's complexities and signifies individuality and hidden stories within paths."
   },
@@ -564,6 +579,7 @@ window.ARTWORKS = [
     status: "Available",
     price: "AED 10,000",
     image: "./images/Strength_Of_The_Spirit_1.jpg",
+    focal: "top",
     location: "Dubai",
     description: "Strength of Spirit 1 captures the essence of legacy through its powerful portrayal of resilience, determination, and inner strength. In this dynamic piece, a fearless female boxer commands attention, embodying not only physical grit but also the values and convictions that define a meaningful life. Her stance, poised for battle, reflects her willingness to face challenges head-on, inspiring those who follow her example to rise above their own struggles. The painting goes beyond the surface of combat, delving into the profound legacy of self-improvement and perseverance. Through her fight, the boxer symbolizes the timeless lessons of overcoming limitations, embracing growth, and demonstrating the strength of character needed to triumph over adversity. Her unwavering spirit reminds viewers of the values we pass down to future generations: the courage to stand up for what we believe in, the resolve to pursue our dreams, and the importance of facing life's challenges with grace and tenacity. Strength of Spirit 1 serves as a visual metaphor for the legacy we leave behind—not just through our victories, but through the way we live our values every day. It inspires viewers to embody the virtues of determination and resilience, ensuring that these lessons endure as a source of pride and motivation for generations to come."
   },
@@ -578,6 +594,7 @@ window.ARTWORKS = [
     status: "Available",
     price: "AED 10,000",
     image: "./images/Strength_Of_The_Spirit_2.jpg",
+    focal: "top",
     location: "Dubai",
     description: "Strength of Spirit 2 depicts an unwrapping of resilience and vulnerability. The painting captures a fighter with a black eye, a visible testament to past wounds and bravery. Yet, the deeper narrative unfolds as the fighter chooses to reveal sensitivity, symbolized by letting down his guard and exposing his essence. This act of openness contrasts with the toughness of the fighter, illustrating that strength isn't always about physical power but also about courage in vulnerability. The black eye becomes a symbol of endurance and the choice to remain sensitive despite life's challenges. It's a visual exploration of the multifaceted nature of strength, inspiring viewers to embrace their inner resilience and authenticity."
   },
@@ -634,6 +651,7 @@ window.ARTWORKS = [
     status: "Available",
     price: "AED 3,000",
     image: "./images/Sunflowers_At_Noon.jpg",
+    focal: "top",
     location: "Dubai",
     description: "In Sunflowers at Noon an engaging oil on canvas piece, the artist offers a fresh interpretation of the iconic theme, imbuing it with her distinctive style. Bold oranges and ochres juxtapose against a pristine white vase and warm green leaves, creating a visually striking contrast. Eschewing precision for raw strokes and charcoal, the artwork exudes authenticity and expressiveness. Sunflowers, rendered with vitality, capture the essence of a sunlit noon. Absence of intricate details invites visceral engagement, conveying raw emotions. This bold approach revitalizes a familiar theme, crafting a dynamic composition resonant with the warmth and vibrancy of midday sun."
   },
@@ -648,6 +666,7 @@ window.ARTWORKS = [
     status: "Available",
     price: "AED 5,000",
     image: "./images/The_Impact.png",
+    zoom: 1.2,
     location: "Dubai",
     description: "Two fighters are locked in a moment of physical intensity—one striking, the other absorbing. Muscles tighten, bodies twist, and within this single frame, time seems to hold its breath. The circular canvas heightens the sense of enclosure, drawing the viewer into a world where force, focus, and fatigue converge. This is not just about sport or violence—it's about the emotional weight behind confrontation. The red glove lands with purpose, but the deeper impact is not only physical. There's something almost tender in the vulnerability of the figure who receives the blow—head lowered, body exposed, but still standing. The Impact explores the duality of strength and fragility. It's about the roles we take on in conflict, the moments where control shifts, and how those moments leave a mark—seen and unseen. Whether read as a literal fight or a metaphor for struggle, the piece asks us to consider what it means to endure, to resist, and to respond."
   },
@@ -676,6 +695,7 @@ window.ARTWORKS = [
     status: "Available",
     price: "AED 25,000",
     image: "./images/The_Running_Daschund.jpg",
+    focal: "right",
     location: "Dubai",
     description: "Running Dachshund captures more than a playful sprint—it becomes a symbol of persistence, lightness, and the freedom found in forward momentum. The exaggerated elongation of the body, almost surreal, emphasizes endurance in the face of limitation. It's a portrait of optimism in motion: determination without tension, movement without resistance. This is not simply a dog in a field—it's the spirit of uninhibited joy. A reminder that life's greatest moments may come not from the destination, but from the run itself: wild, focused, and utterly free."
   },
@@ -690,6 +710,7 @@ window.ARTWORKS = [
     status: "Available",
     price: "AED 8,000",
     image: "./images/The_Silent_Sentinel.jpg",
+    focal: "top",
     location: "Dubai",
     description: "The Silent Sentinel stands as a symbol of stoic endurance, watching over a desolate yet vibrant landscape. The cactus's vivid blooms offer a delicate contrast to its armored form, while the red shadow suggests unseen depth—perhaps of past struggles or protective energy. Surrounded by emptiness, the sentinel remains grounded, a reminder that strength often resides in stillness and survival is a quiet form of resistance."
   },
@@ -718,6 +739,7 @@ window.ARTWORKS = [
     status: "Available",
     price: "AED 2,500",
     image: "./images/Tulip_And_Dragonfruit.jpg",
+    focal: "top",
     location: "Dubai",
     description: "In this painting titled Tulip and Dragonfruit, a delicate balance of colors and textures captures the essence of nature's quiet elegance. At the heart of the composition, a striking dragonfruit stands out with its vibrant reddish-pink hue, its leathery skin and intricate patterns adding depth and richness to the scene. Its bold color contrasts beautifully with the soft, muted beige background, creating a sense of warmth and tranquility. Surrounding the dragonfruit, a cluster of pink tulips rises with gentle grace. Their soft petals unfurl, their pink tones varying in shades from pale blush to a deeper, almost magenta hue, adding a sense of vibrancy and life to the painting. The tulips' slender stems and delicate curves are rendered with a light touch, evoking a sense of fragility and softness. The smooth, muted beige tones of the background complement the colors of the tulips and dragonfruit, creating a serene atmosphere that invites the viewer to appreciate the quiet beauty of nature's more subtle moments. The painting captures the harmony between the fruit's exotic intensity and the tulips' gentle elegance, highlighting the contrasts between boldness and delicacy, warmth and coolness. It's a visual celebration of the vibrant richness and calm simplicity of nature, evoking both a sense of freshness and timeless beauty."
   },
@@ -732,6 +754,7 @@ window.ARTWORKS = [
     status: "Available",
     price: "AED 25,000",
     image: "./images/Turquoise_Hat.jpg",
+    focal: "top",
     location: "Dubai",
     description: "In Turquoise Hat an entrancing oil on canvas painting, the artist deftly channels impressionist influences to capture the tranquil beauty of twilight. Centered around a young girl in a swimsuit on a striped towel, the scene unfolds during the magical transition from day to night. Soft hues inspired by impressionism, including purples, lavenders, and peachy mid-tones, create an ethereal atmosphere. A vivid turquoise hat commands attention amidst the subtle palette. The girl's direct gaze fosters intimacy, while the background's deep green complements her form. This thoughtful composition evokes comfort and tranquility, inviting viewers to immerse themselves in twilight's serene beauty."
   },
@@ -746,6 +769,7 @@ window.ARTWORKS = [
     status: "Available",
     price: "AED 3,000",
     image: "./images/Winterberry.png",
+    zoom: 1.2,
     location: "Dubai",
     description: "In this painting, winterberries come to life against a tranquil, snow-dusted backdrop, capturing the serene beauty of the colder months. The scene is dominated by clusters of vibrant red berries, their deep hue standing out in stark contrast to the muted tones of the surrounding branches and snow. The delicate, winding brown branches stretch across the canvas, their twists and turns evoking the quiet elegance of winter's skeletal trees. The berries, glistening with frost, appear almost weightless, adding a pop of color to the otherwise subdued, monochromatic scene. The predominant white hues of the canvas represent the purity of fresh snow and the stillness of winter's embrace. Soft brushstrokes of white blend across the background, creating a soft, ethereal effect that gives the painting a sense of peaceful quiet. The snow seems to envelop the berries, their vibrant red tones standing as beacons of life and color in the midst of winter's calm. This painting beautifully conveys the resilience and quiet strength of nature during the colder months. The stark simplicity of the composition is both peaceful and captivating, inviting the viewer to pause and reflect on the delicate beauty found in the small, often overlooked moments of nature. The winterberries symbolize the endurance of life amidst the chill and stillness of winter."
   },
@@ -760,6 +784,7 @@ window.ARTWORKS = [
     status: "Available",
     price: "AED 3,000",
     image: "./images/Yellow_Alstoemeria.jpg",
+    focal: "top",
     location: "Dubai",
     description: "In this painting, yellow alstroemeria blooms boldly against a backdrop of contrasting colors. The upper part of the background is a serene blue-grey, reminiscent of a tranquil sky, while the lower portion transitions into a deep, dark green, evoking the lushness of nature. This horizontal divide creates a striking visual contrast, symbolizing the interplay between serenity and vitality, calmness and vibrancy. The alstroemeria, with its cheerful yellow petals, serves as a beacon of brightness amid the contrasting tones, drawing the eye and infusing the composition with a sense of dynamic balance. It's a visual metaphor for finding beauty and harmony in life's diverse elements."
   }
