@@ -15,7 +15,7 @@
         <a href="./index.html" class="text-lg font-semibold leading-tight">Daria Avdeeva</a>
       </div>
       <nav class="hidden sm:flex items-center gap-6 text-sm">
-        <a href="./gallery.html" class="hover:opacity-70">All Works</a>
+        <a href="./gallery.html" class="hover:opacity-70">Works</a>
         <a href="./index.html#about" class="hover:opacity-70">About</a>
         <a href="./index.html#contact" class="hover:opacity-70">Contact</a>
       </nav>
@@ -26,13 +26,16 @@
     <div class="aspect-[4/3] rounded-2xl overflow-hidden shadow bg-neutral-200">
       <img id="img" alt="Artwork image" class="w-full h-full object-contain"/>
     </div>
+
     <div>
       <a href="./gallery.html" class="text-sm underline">← Back to all works</a>
       <h1 id="title" class="text-3xl font-bold mt-2"></h1>
-      <p id="meta" class="text-neutral-700 mt-1"></p>
-      <p id="price" class="mt-2 font-medium"></p>
+
+      <!-- Labeled rows -->
+      <dl id="metaRows" class="mt-3 grid grid-cols-1 gap-2 text-sm"></dl>
+
+      <p id="price" class="mt-3 font-medium"></p>
       <p id="desc" class="mt-4 text-neutral-700 whitespace-pre-line"></p>
-    
 
       <div class="mt-6 grid sm:grid-cols-2 gap-2">
         <a id="inquire" class="px-4 py-2 rounded-2xl bg-neutral-900 text-white text-center" target="_blank">Inquire</a>
@@ -45,53 +48,62 @@
   <script src="./artworks.js"></script>
 
   <!-- Page script -->
-<script>
-  function getParam(key){
-    const url = new URL(window.location.href);
-    return url.searchParams.get(key);
-  }
-
-  // helper: join non-empty bits with •
-  function metaLine(parts){
-    return parts.filter(Boolean).join(' • ');
-  }
-
-  function renderArtwork(){
-    const id = getParam('id');
-    const a = (window.ARTWORKS||[]).find(x=>x.id===id);
-
-    if(!a){
-      document.body.innerHTML = '<div class="max-w-2xl mx-auto p-6 text-center">Artwork not found. <a href="./gallery.html" class="underline">Back to all works</a></div>';
-      return;
+  <script>
+    function getParam(key){
+      const url = new URL(window.location.href);
+      return url.searchParams.get(key);
     }
 
-    document.title = `${a.title} — ${window.ARTIST?.name || 'Artist'}`;
+    // helper: one labeled row (bold label, regular value)
+    function row(label, value){
+      if (!value && value !== 0) return "";
+      return `
+        <div class="grid grid-cols-[140px_1fr] gap-3">
+          <dt class="font-semibold text-neutral-900">${label}:</dt>
+          <dd class="font-normal text-neutral-700">${value}</dd>
+        </div>
+      `;
+    }
 
-    const imgEl = document.getElementById('img');
-    imgEl.src = a.image;
-    imgEl.alt = a.title || 'Artwork image';
+    function renderArtwork(){
+      const id = getParam('id');
+      const a = (window.ARTWORKS || []).find(x => x.id === id);
 
-    document.getElementById('title').textContent = a.title;
+      if (!a) {
+        document.body.innerHTML = '<div class="max-w-2xl mx-auto p-6 text-center">Artwork not found. <a href="./gallery.html" class="underline">Back to all works</a></div>';
+        return;
+      }
 
-    // clean meta: Collection • Medium • Size (cm) • Size (label) • Year
-    document.getElementById('meta').textContent = metaLine([
-      a.collection,
-      a.medium,
-      a.size_cm,
-      a.size,
-      a.year
-    ]);
+      document.title = `${a.title} — ${window.ARTIST?.name || 'Artist'}`;
 
-    document.getElementById('price').textContent = a.price || 'AED —';
+      const imgEl = document.getElementById('img');
+      imgEl.src = a.image;
+      imgEl.alt = a.title || 'Artwork image';
 
-    // Render rich text if you use <strong>/<em> in descriptions
-    document.getElementById('desc').innerHTML = a.description || '';
+      document.getElementById('title').textContent = a.title;
 
-    document.getElementById('inquire').href = `mailto:${window.ARTIST?.email}?subject=${encodeURIComponent('Inquiry: '+(a.title||''))}`;
-    document.getElementById('instagram').href = `https://instagram.com/${(window.ARTIST?.instagram||'').replace('@','')}`;
-  }
+      // Labeled meta rows
+      const metaHTML = [
+        row("Collection", a.collection),
+        row("Medium", a.medium),
+        row("Size in cm", a.size_cm),
+        row("Size", a.size),
+        row("Year", a.year),
+        row("Location", a.location)
+      ].join("");
+      document.getElementById('metaRows').innerHTML = metaHTML;
 
-  renderArtwork();
-</script>
+      // Price already formatted like "AED 10,000" in artworks.js
+      document.getElementById('price').textContent = a.price || 'AED —';
+
+      // Description supports <strong>/<em> tags
+      document.getElementById('desc').innerHTML = a.description || '';
+
+      document.getElementById('inquire').href = `mailto:${window.ARTIST?.email}?subject=${encodeURIComponent('Inquiry: ' + (a.title || ''))}`;
+      document.getElementById('instagram').href = `https://instagram.com/${(window.ARTIST?.instagram || '').replace('@','')}`;
+    }
+
+    renderArtwork();
+  </script>
 </body>
 </html>
