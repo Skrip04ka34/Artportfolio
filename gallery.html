@@ -74,32 +74,37 @@
   return "AED " + int.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
     
-  function card(a){
+  <script>
+function card(a){
+  // Tailwind-supported focal keywords → class
   const focalMap = {
-    top:    'object-top',
+    top: 'object-top',
     bottom: 'object-bottom',
-    left:   'object-left',
-    right:  'object-right',
+    left: 'object-left',
+    right: 'object-right',
     center: 'object-center'
   };
 
-  const f = (a.focal || 'center').toLowerCase().trim();
-  const isPercent = /%/.test(f) || /\d/.test(f);
-  const focalClass = isPercent ? 'object-center' : (focalMap[f] || 'object-center');
-  const focalStyle = isPercent ? `object-position:${f};` : '';
+  // Normalize inputs
+  const focalRaw = (a.focal || 'center').toString().trim().toLowerCase();
+  const zoomVal  = (typeof a.zoom === 'number' && a.zoom > 0) ? a.zoom : 1;
 
-  const zoomValue = a.zoom || 1; // default 1 means no zoom
-  const transformStyle = zoomValue !== 1 ? `transform:scale(${zoomValue});` : '';
+  // Decide class vs inline style for focal
+  const focalClass = focalMap[focalRaw] || 'object-center';
+  const useInlineFocal = !focalMap[focalRaw] && a.focal; // custom like "top left" / "50% 20%"
 
-  const styleAttr = (focalStyle || transformStyle)
-    ? `style="${focalStyle} ${transformStyle}"` : '';
+  // Build inline style parts safely
+  const styles = [];
+  if (useInlineFocal) styles.push(`object-position: ${a.focal};`);
+  if (zoomVal !== 1)  styles.push(`transform: scale(${zoomVal});`);
+  const styleAttr = styles.length ? `style="${styles.join(' ')}"` : '';
 
   return `
     <article class="group rounded-2xl overflow-hidden border bg-white">
       <a href="./artwork.html?id=${encodeURIComponent(a.id)}" class="block">
         <div class="aspect-[4/3] bg-neutral-100 overflow-hidden">
           <img src="${a.image}" alt="${a.title}"
-               class="w-full h-full object-cover ${focalClass} group-hover:scale-${zoomValue * 1.1} transition"
+               class="w-full h-full object-cover ${focalClass} transition"
                ${styleAttr}/>
         </div>
         <div class="p-3">
@@ -116,6 +121,7 @@
       </a>
     </article>`;
 }
+</script>
 
     function render(){
       const q = (search.value||'').toLowerCase();
