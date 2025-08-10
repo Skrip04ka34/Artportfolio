@@ -31,7 +31,9 @@
       <h1 id="title" class="text-3xl font-bold mt-2"></h1>
       <p id="meta" class="text-neutral-700 mt-1"></p>
       <p id="price" class="mt-2 font-medium"></p>
+      <div id="badges" class="mt-3 flex items-center gap-2"></div>
       <p id="desc" class="mt-4 text-neutral-700 whitespace-pre-line"></p>
+    
 
       <div class="mt-6 grid sm:grid-cols-2 gap-2">
         <a id="inquire" class="px-4 py-2 rounded-2xl bg-neutral-900 text-white text-center" target="_blank">Inquire</a>
@@ -62,8 +64,10 @@
       document.title = `${a.title} — ${window.ARTIST?.name || 'Artist'}`;
       document.getElementById('img').src = a.image;
       document.getElementById('title').textContent = a.title;
-      document.getElementById('meta').textContent = `${a.medium} • ${a.size_cm} • ${a.year} • ${a.status}`;
+      document.getElementById('meta').textContent =  `${a.collection ? a.collection + ' • ' : ''}${a.medium} • ${a.size_cm}${a.size ? ' • ' + a.size : ''} • ${a.year}`;
       document.getElementById('price').textContent = a.price;
+      document.getElementById('badges').innerHTML = `${a.collection ? `<span class="px-2 py-0.5 rounded-full border text-sm">${a.collection}</span>` : ``}  ${a.size ? `<span class="px-2 py-0.5 rounded-full border text-sm">${a.size}</span>` : ``}
+`;
       document.getElementById('desc').innerHTML = a.description || '';
       document.getElementById('inquire').href = `mailto:${window.ARTIST?.email}?subject=${encodeURIComponent('Inquiry: '+a.title)}`;
       document.getElementById('instagram').href = `https://instagram.com/${(window.ARTIST?.instagram||'').replace('@','')}`;
