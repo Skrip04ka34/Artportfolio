@@ -785,5 +785,19 @@ window.ARTWORKS = [
     focal: "top",
     location: "Dubai",
     description: "In this painting, yellow alstroemeria blooms boldly against a backdrop of contrasting colors. The upper part of the background is a serene blue-grey, reminiscent of a tranquil sky, while the lower portion transitions into a deep, dark green, evoking the lushness of nature. This horizontal divide creates a striking visual contrast, symbolizing the interplay between serenity and vitality, calmness and vibrancy. The alstroemeria, with its cheerful yellow petals, serves as a beacon of brightness amid the contrasting tones, drawing the eye and infusing the composition with a sense of dynamic balance. It's a visual metaphor for finding beauty and harmony in life's diverse elements."
+  },
+  {
+    id: "a55",
+    title: "Two Daschunds",
+    year: 2025,
+    collection: "Animals",
+    size: "Medium",
+    size_cm: "50x70",
+    medium: "Charcoal on Paper",
+    status: "Available",
+    price: "AED 3,000",
+    image: "./images/Two_Daschunds.jpg",
+    location: "Dubai",
+    description: "This charcoal drawing captures a tender moment between two dachshunds resting closely together. The composition conveys both the physical closeness and the quiet emotional bond between the dogs. One dachshund, eyes closed, leans gently into the other, whose gaze drifts outward in a moment of calm contemplation. The textured strokes and subtle tonal variations bring depth and warmth to the scene, while the minimal background allows the viewer’s attention to rest solely on the intimate connection between the two subjects."
   }
 ];
