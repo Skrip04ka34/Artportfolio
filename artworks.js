@@ -73,7 +73,6 @@ window.ARTWORKS = [
     status: "Available",
     price: "AED 5,000",
     image: "./images/Boxing_Gloves.png",
-    focal: "top",
     zoom: 1.4, 
     location: "Dubai",
     description: "Boxing Gloves captures a moment of release and triumph. The silver boxing gloves and the black wraps are scattered around, traces of a fierce battle or intense practice. These objects echo a deeper narrative—of shedding rage and fear, of conquering inner battles. The neutral palette of blacks, greys, and beiges fosters a serene atmosphere, reflecting the calm after an adrenaline rush. It's a visual play of contrasts: the gleaming silver against muted tones, the random placement suggesting order found within chaos. Boxing Gloves invites viewers to feel the cathartic power of overcoming fears and embracing newfound strength."
@@ -135,7 +134,7 @@ window.ARTWORKS = [
     status: "Available",
     price: "AED 5,000",
     image: "./images/Clementine_Branch.jpg",
-    focal: "top 20%",
+    focal: "top 10%",
     location: "Dubai",
     description: "In this painting duo, the citrus fruits have golden yellows echoing the sun's warmth, as well as shades of bright oranges and burnt browns. These warm tones intensify the summer heat and haze, creating an atmosphere that feels almost tangible. Dynamic brushstrokes add movement and energy, infusing the compositions with life. The contrast between the simple yet vivid fruits and the nuanced background creates a delicate interplay, inviting viewers to savor the sensory richness of a sun-kissed summer day."
   },
