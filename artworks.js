@@ -134,7 +134,6 @@ window.ARTWORKS = [
     status: "Available",
     price: "AED 5,000",
     image: "./images/Clementine_Branch.jpg",
-    focal: "top 10%",
     location: "Dubai",
     description: "In this painting duo, the citrus fruits have golden yellows echoing the sun's warmth, as well as shades of bright oranges and burnt browns. These warm tones intensify the summer heat and haze, creating an atmosphere that feels almost tangible. Dynamic brushstrokes add movement and energy, infusing the compositions with life. The contrast between the simple yet vivid fruits and the nuanced background creates a delicate interplay, inviting viewers to savor the sensory richness of a sun-kissed summer day."
   },
@@ -322,7 +321,7 @@ window.ARTWORKS = [
     status: "Available",
     price: "AED 2,000",
     image: "./images/Hand_with_Clementine.png",
-    zoom: 1.6,
+    zoom: 1.7,
     location: "Dubai",
     description: "Hand Holding a Tangerine is a painting that evokes a sense of quiet intimacy and connection between the human form and nature's vibrant bounty. The canvas is washed in soft white tones, creating an almost ethereal backdrop that allows the central figure—the hand—holding a tangerine, to emerge as the focal point. The hand is depicted in a graceful and yet purposeful manner, fingers gently cupping the fruit, its stem held delicately at the top, offering a sense of care and reverence. The tangerine itself bursts with vivid orange, its color standing out against the pale background with a warm, almost glowing intensity. This careful contrast between the white and the vibrant orange symbolizes a moment of balance—between the calm of human touch and the radiant energy of life's simplest pleasures. The brushwork is soft yet deliberate, capturing the smooth texture of the hand while allowing the tangerine's contours to appear almost tactile, as though one could reach out and feel its natural beauty. The piece invites contemplation on the fragility and fleeting nature of everyday moments, emphasizing how a simple gesture, like holding a piece of fruit, can become a profound expression of life's delicate balance between nature and humanity."
   },
