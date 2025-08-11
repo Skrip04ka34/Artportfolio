@@ -484,7 +484,7 @@ window.ARTWORKS = [
   {
     id: "a34",
     title: "Morning Coffee",
-    year: 2024,
+    year: 2025,
     collection: "Figures & Portraits",
     size: "Large",
     size_cm: "80x60",
@@ -612,7 +612,7 @@ window.ARTWORKS = [
   {
     id: "a43",
     title: "Sunday Brunch",
-    year: 2024,
+    year: 2025,
     collection: "Still Life",
     size: "Extra Large",
     size_cm: "150x75",
@@ -655,7 +655,7 @@ window.ARTWORKS = [
   {
     id: "a46",
     title: "The Impact",
-    year: 2024,
+    year: 2025,
     collection: "Figures & Portraits",
     size: "Medium",
     size_cm: "60x60",
@@ -670,7 +670,7 @@ window.ARTWORKS = [
   {
     id: "a47",
     title: "The Missed Opportunity",
-    year: 2024,
+    year: 2025,
     collection: "Figures & Portraits",
     size: "Medium",
     size_cm: "45x90",
