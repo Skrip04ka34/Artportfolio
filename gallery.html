@@ -30,6 +30,9 @@
       </div>
       <div class="flex flex-wrap gap-2">
         <input id="search" placeholder="Search title, medium…" class="px-3 py-2 border rounded-xl text-sm bg-white" />
+        <select id="filterMedium" class="px-3 py-2 border rounded-xl text-sm bg-white">
+  <option value="">All mediums</option>
+</select>
         <select id="filterCollection" class="px-3 py-2 border rounded-xl text-sm bg-white">
           <option value="">All collections</option>
         </select>
@@ -49,7 +52,7 @@
           <option value="price_hl">Price (High → Low)</option>
           <option value="size_s_xl">Size (Small → XL)</option>
           <option value="size_xl_s">Size (XL → Small)</option>
-          <option value="default">Default (Original)</option>
+          <option value="default">Default</option>
         </select>
       </div>
     </div>
@@ -74,6 +77,9 @@
     (window.ARTWORKS || []).forEach((a, i) => { a._i = i; });
 
     function setupFilters(){
+      const mediums = Array.from(new Set((window.ARTWORKS||[]).map(a => a.medium || "Unknown"))).sort();
+filterMedium.innerHTML = `<option value="">All mediums</option>` + mediums.map(m=>`<option>${m}</option>`).join('');
+
       const collections = Array.from(new Set((window.ARTWORKS||[]).map(a => a.collection || "Uncategorized"))).sort();
       filterCollection.innerHTML = `<option value="">All collections</option>` + collections.map(c=>`<option>${c}</option>`).join('');
 
@@ -161,11 +167,14 @@
       const yr  = filterYear?.value || '';
       const sz  = filterSize?.value || '';
       const mode= sortBy?.value || 'default';
+      const filterMedium = document.getElementById('filterMedium');
+
 
       let items = (window.ARTWORKS || []).filter(a => (
         (!coll || (a.collection || '') === coll) &&
         (!yr || String(a.year) === yr) &&
         (!sz || (a.size || '') === sz) &&
+        (!med || (a.medium || '') === med) &&
         (!q || `${a.title} ${a.medium} ${a.collection}`.toLowerCase().includes(q))
       ));
 
@@ -175,7 +184,7 @@
       document.getElementById('empty').classList.toggle('hidden', items.length !== 0);
     }
 
-    [search, filterCollection, filterYear, filterSize, sortBy]
+    [search, filterMedium, filterCollection, filterYear, filterSize, sortBy]
       .filter(Boolean)
       .forEach(el => el.addEventListener('input', render));
 
