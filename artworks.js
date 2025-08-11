@@ -134,6 +134,7 @@ window.ARTWORKS = [
     status: "Available",
     price: "AED 5,000",
     image: "./images/Clementine_Branch.jpg",
+    focal: "top 20%",
     location: "Dubai",
     description: "In this painting duo, the citrus fruits have golden yellows echoing the sun's warmth, as well as shades of bright oranges and burnt browns. These warm tones intensify the summer heat and haze, creating an atmosphere that feels almost tangible. Dynamic brushstrokes add movement and energy, infusing the compositions with life. The contrast between the simple yet vivid fruits and the nuanced background creates a delicate interplay, inviting viewers to savor the sensory richness of a sun-kissed summer day."
   },
@@ -493,7 +494,7 @@ window.ARTWORKS = [
     price: "AED 7,000",
     image: "./images/Morning_Coffee.jpg",
     location: "Dubai",
-    description: "Morning Coffee is not just a portrait of one woman, but of all women. It captures a universal ritual—the quiet act of preparing to face the world. The mud mask becomes more than skincare; it's symbolic armor, a gesture of care, transformation, and control. Even in solitude, even before the day begins, there is intention: to be ready, to be presentable, to carry oneself with dignity. The painting reflects the emotional labor behind composure—the internal strength required to present a calm surface despite whatever might lie beneath. The red mug, warm and vibrant, becomes a metaphor for energy, identity, and the fire held within. This is a portrait of quiet resilience. A reminder that strength often starts in the smallest of rituals—and that behind every polished face is a woman who chose to begin again.\n\n."
+    description: "Morning Coffee is not just a portrait of one woman, but of all women. It captures a universal ritual—the quiet act of preparing to face the world. The mud mask becomes more than skincare; it's symbolic armor, a gesture of care, transformation, and control. Even in solitude, even before the day begins, there is intention: to be ready, to be presentable, to carry oneself with dignity. The painting reflects the emotional labor behind composure—the internal strength required to present a calm surface despite whatever might lie beneath. The red mug, warm and vibrant, becomes a metaphor for energy, identity, and the fire held within. This is a portrait of quiet resilience. A reminder that strength often starts in the smallest of rituals—and that behind every polished face is a woman who chose to begin again."
   },
   {
     id: "a35",
