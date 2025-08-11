@@ -1,1 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About Daria — Daria Avdeeva</title>
+  <meta name="description" content="About oil painter Daria Avdeeva" />
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-neutral-50 text-neutral-900 antialiased">
+  <header class="sticky top-0 z-30 bg-white/80 backdrop-blur border-b">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-9 h-9 rounded-full bg-neutral-900 text-white grid place-content-center font-semibold">DA</div>
+        <a href="./index.html" class="text-lg font-semibold leading-tight">Daria Avdeeva</a>
+      </div>
+      <nav class="hidden sm:flex items-center gap-6 text-sm">
+        <a href="./gallery.html" class="hover:opacity-70">Works</a>
+        <a href="./about.html" class="hover:opacity-70">About Daria</a>
+        <a href="./commission.html" class="hover:opacity-70">Commission Artwork</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 py-10">
+    <section class="grid md:grid-cols-2 gap-8 items-start">
+      <div class="aspect-[4/3] rounded-2xl overflow-hidden shadow bg-neutral-200">
+        <img src="./images/Daria-Closeup.jpg" alt="Daria Avdeeva"
+             class="w-full h-full object-cover" />
+      </div>
+      <div>
+        <h1 class="text-3xl font-bold mb-3">About Daria</h1>
+        <p class="text-neutral-700 leading-relaxed">
+          Daria Avdeeva is an oil painter based in Dubai, UAE. Daria’s artistic journey is rooted in classical oil painting techniques studied in esteemed academies across Italy, Russia, and Bulgaria. Born in Russia and raised in the UAE since 1997, she grew up immersed in a fusion of cultures that shaped her vision.
+        </p>
+        <p class="text-neutral-700 leading-relaxed mt-3">
+          Trained in still life, portraiture, and figurative painting, her work emphasizes technical precision, composition, and emotional depth. Blending time-honored methods with a contemporary sensibility, Daria’s paintings are distinguished by vibrant palettes and a fresh perspective that bridges tradition and innovation.
+        </p>
+        <p class="text-neutral-700 leading-relaxed mt-3">
+          Through dedicated study and curiosity, she continues to evolve—exploring new ways to push the boundaries of her craft.
+        </p>
+      </div>
+    </section>
+
+    <section class="mt-10">
+      <h2 class="text-2xl font-semibold mb-3">Previous Exhibitions</h2>
+      <ul class="list-disc pl-6 space-y-1 text-neutral-700">
+        <li>World Art Dubai (2025), Dubai, UAE</li>
+        <li>Portrait Art Muse (2025), Dubai, UAE</li>
+        <li>The Art of Light, SAKKU & UPSTAIRS GALLERY (2025), Dubai, UAE</li>
+        <li>Between Sands and Stars, SAKKU & UPSTAIRS GALLERY (2024), Dubai, UAE</li>
+        <li>EuropArtFair (2024), Amsterdam, Netherlands</li>
+        <li>UAE Realty Awards (2024), Dubai, UAE</li>
+        <li>The Design Gallery (2024), Ras Al Khaimah, UAE</li>
+        <li>World Art Dubai (2024), Dubai, UAE</li>
+        <li>Beyond Boundaries — Cross Borders Art Gallery (2024), Dubai, UAE</li>
+        <li>Wanderlust Impressions — Artezaar (2024), Dubai, UAE</li>
+        <li>BodySpaces — ITSLIQUID Group (2023), London, UK</li>
+        <li>To be a Woman — KareArt (2023), Sofia, Bulgaria</li>
+        <li>Concept — Florence Contemporary Gallery (2023), Florence, Italy</li>
+        <li>More Cafe (2023), Dubai, UAE</li>
+        <li>Reem Gallery (2023), Dubai, UAE</li>
+        <li>Secret Spaces — ITSLIQUID Group (2023), Venice, Italy</li>
+        <li>RGB Sky — MADS Gallery (2023), Milan, Italy</li>
+        <li>World Art Dubai (2023), Dubai, UAE</li>
+        <li>Dada Cultural Bar & Russian Cultural Center (2016), Sofia, Bulgaria</li>
+        <li>Dubai International Arts Center (2013), Dubai, UAE</li>
+      </ul>
+    </section>
+
+    <section class="mt-10">
+      <div class="rounded-2xl border bg-white p-6">
+        <h3 class="text-xl font-semibold mb-2">Contact</h3>
+        <p class="text-neutral-700">Email: <a href="mailto:artist.dariaavd@gmail.com" class="underline">artist.dariaavd@gmail.com</a></p>
+        <p class="text-neutral-700">Instagram: <a href="https://instagram.com/dariadrawsart" class="underline">@dariadrawsart</a></p>
+        <p class="text-neutral-700">Mobile: 0563443141</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="py-10 text-center text-sm text-neutral-500">© <span id="year"></span> Daria Avdeeva. All rights reserved.</footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
 
