@@ -49,7 +49,7 @@ window.ARTWORKS = [
   {
     id: "a4",
     title: "Bowtie",
-    year: 2022,
+    year: 2023,
     collection: "Figures & Portraits",
     size: "Large",
     size_cm: "80x60",
@@ -168,7 +168,7 @@ window.ARTWORKS = [
   {
     id: "a12",
     title: "Composition with Northern Mushrooms 1",
-    year: 2022,
+    year: 2023,
     collection: "Still Life",
     size: "Medium",
     size_cm: "60x60",
@@ -240,7 +240,7 @@ window.ARTWORKS = [
   {
     id: "a17",
     title: "Freesias during the Golden Hour",
-    year: 2022,
+    year: 2023,
     collection: "Floral",
     size: "Extra Large",
     size_cm: "120x80",
@@ -270,7 +270,7 @@ window.ARTWORKS = [
   {
     id: "a19",
     title: "Gladioli and Alstroemeria in the Morning",
-    year: 2022,
+    year: 2023,
     collection: "Floral",
     size: "Extra Large",
     size_cm: "120x90",
@@ -426,7 +426,7 @@ window.ARTWORKS = [
   {
     id: "a30",
     title: "Limitless",
-    year: 2022,
+    year: 2023,
     collection: "Figures & Portraits",
     size: "Extra Large",
     size_cm: "100x120",
@@ -441,7 +441,7 @@ window.ARTWORKS = [
   {
     id: "a31",
     title: "Mixed signals",
-    year: 2023,
+    year: 2024,
     collection: "Figures & Portraits",
     size: "Large",
     size_cm: "50x100",
@@ -469,7 +469,7 @@ window.ARTWORKS = [
   {
     id: "a33",
     title: "More Passion",
-    year: 2023,
+    year: 2024,
     collection: "Figures & Portraits",
     size: "Large",
     size_cm: "70x90",
@@ -640,7 +640,7 @@ window.ARTWORKS = [
   {
     id: "a45",
     title: "Sunflowers at Noon",
-    year: 2022,
+    year: 2023,
     collection: "Floral",
     size: "Large",
     size_cm: "90x60",
