@@ -23,7 +23,7 @@
   </header>
 
   <main class="max-w-6xl mx-auto px-4 py-8">
-    <div class="flex items-end justify-between mb-4">
+    <div class="flex items-end justify-between mb-4 gap-3 flex-wrap">
       <div>
         <h1 class="text-3xl font-bold">All Works</h1>
         <p class="text-sm text-neutral-600">Click any piece to view details.</p>
@@ -31,8 +31,8 @@
       <div class="flex flex-wrap gap-2">
         <input id="search" placeholder="Search title, medium…" class="px-3 py-2 border rounded-xl text-sm bg-white" />
         <select id="filterCollection" class="px-3 py-2 border rounded-xl text-sm bg-white">
-  <option value="">All collections</option>
-</select>
+          <option value="">All collections</option>
+        </select>
         <select id="filterYear" class="px-3 py-2 border rounded-xl text-sm bg-white"></select>
         <select id="filterSize" class="px-3 py-2 border rounded-xl text-sm bg-white">
           <option value="">All sizes</option>
@@ -40,6 +40,16 @@
           <option>Medium</option>
           <option>Large</option>
           <option>Extra Large</option>
+        </select>
+        <!-- Sort control -->
+        <select id="sortBy" class="px-3 py-2 border rounded-xl text-sm bg-white">
+          <option value="name_az">Name (A → Z)</option>
+          <option value="name_za">Name (Z → A)</option>
+          <option value="price_lh">Price (Low → High)</option>
+          <option value="price_hl">Price (High → Low)</option>
+          <option value="size_s_xl">Size (Small → XL)</option>
+          <option value="size_xl_s">Size (XL → Small)</option>
+          <option value="default">Default (Original)</option>
         </select>
       </div>
     </div>
@@ -58,81 +68,117 @@
     const filterCollection = document.getElementById('filterCollection');
     const filterYear = document.getElementById('filterYear');
     const filterSize = document.getElementById('filterSize');
+    const sortBy = document.getElementById('sortBy');
+
+    // Tag original order so "Default (Original)" always works
+    (window.ARTWORKS || []).forEach((a, i) => { a._i = i; });
 
     function setupFilters(){
-      const collections = Array.from(new Set(window.ARTWORKS.map(a=>a.collection))).sort();
-      const years = Array.from(new Set(window.ARTWORKS.map(a=>a.year))).sort((a,b)=>b-a);
+      const collections = Array.from(new Set((window.ARTWORKS||[]).map(a => a.collection || "Uncategorized"))).sort();
       filterCollection.innerHTML = `<option value="">All collections</option>` + collections.map(c=>`<option>${c}</option>`).join('');
+
+      const years = Array.from(new Set((window.ARTWORKS||[]).map(a => a.year).filter(Boolean))).sort((a,b)=>b-a);
       filterYear.innerHTML = `<option value="">All years</option>` + years.map(y=>`<option>${y}</option>`).join('');
+
+      if (sortBy) sortBy.value = 'default';
     }
 
-    function formatAED(p){
-  if (p == null || p === "" || p === "—") return "AED —";
-  const num = String(p).replace(/[^\d.]/g, "");
-  if (!num) return "AED —";
-  const int = Math.round(parseFloat(num));
-  return "AED " + int.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-}
-    
-  function card(a){
-  const focalMap = {
-    top:    'object-top',
-    bottom: 'object-bottom',
-    left:   'object-left',
-    right:  'object-right',
-    center: 'object-center'
-  };
+    // Safely parse "AED 10,000" -> 10000
+    function priceNumber(p){
+      if (!p) return NaN;
+      const s = String(p).replace(/[^\d.]/g, "");
+      return s ? parseFloat(s) : NaN;
+    }
 
-  const f = (a.focal || 'center').toLowerCase().trim();
-  const isPercent = /%/.test(f) || /\d/.test(f);
-  const focalClass = isPercent ? 'object-center' : (focalMap[f] || 'object-center');
-  const focalStyle = isPercent ? `object-position:${f};` : '';
+    // Map size label to rank for sorting
+    function sizeRank(sz){
+      const map = { "Small": 0, "Medium": 1, "Large": 2, "Extra Large": 3 };
+      return map[sz] ?? -1;
+    }
 
-  const zoomValue = a.zoom || 1; // default 1 means no zoom
-  const transformStyle = zoomValue !== 1 ? `transform:scale(${zoomValue});` : '';
+    function sortItems(items, mode){
+      switch (mode){
+        case 'name_az':  return items.slice().sort((a,b)=>(a.title||'').localeCompare(b.title||''));
+        case 'name_za':  return items.slice().sort((a,b)=>(b.title||'').localeCompare(a.title||''));
+        case 'price_lh': return items.slice().sort((a,b)=>(priceNumber(a.price)-priceNumber(b.price)));
+        case 'price_hl': return items.slice().sort((a,b)=>(priceNumber(b.price)-priceNumber(a.price)));
+        case 'size_s_xl':return items.slice().sort((a,b)=>(sizeRank(a.size)-sizeRank(b.size)));
+        case 'size_xl_s':return items.slice().sort((a,b)=>(sizeRank(b.size)-sizeRank(a.size)));
+        case 'default':
+        default:         return items.slice().sort((a,b)=>(a._i - b._i));
+      }
+    }
 
-  const styleAttr = (focalStyle || transformStyle)
-    ? `style="${focalStyle} ${transformStyle}"` : '';
+    // Card renderer with focal + zoom support
+    function card(a){
+      const focalMap = {
+        top: 'object-top',
+        bottom: 'object-bottom',
+        left: 'object-left',
+        right: 'object-right',
+        center: 'object-center'
+      };
 
-  return `
-    <article class="group rounded-2xl overflow-hidden border bg-white">
-      <a href="./artwork.html?id=${encodeURIComponent(a.id)}" class="block">
-        <div class="aspect-[4/3] bg-neutral-100 overflow-hidden">
-          <img src="${a.image}" alt="${a.title}"
-               class="w-full h-full object-cover ${focalClass} group-hover:scale-${zoomValue * 1.1} transition"
-               ${styleAttr}/>
-        </div>
-        <div class="p-3">
-          <h3 class="font-medium">${a.title}</h3>
-          <p class="text-sm text-neutral-600">${a.medium} • ${a.size_cm} • ${a.year}</p>
-          <div class="mt-2 flex items-center justify-between text-sm">
-            <span class="font-medium">${a.price || "AED —"}</span>
-            <div class="flex items-center gap-2">
-              ${a.collection ? '<span class="px-2 py-0.5 rounded-full border">' + a.collection + '</span>' : ''}
-              ${a.size ? '<span class="px-2 py-0.5 rounded-full border">' + a.size + '</span>' : ''}
+      const focalRaw = (a.focal || 'center').toString().trim().toLowerCase();
+      const tailwindClass = focalMap[focalRaw];
+      const useInlineFocal = !tailwindClass && a.focal; // e.g., "top left", "50% 20%"
+
+      const zoomVal = (typeof a.zoom === 'number' && a.zoom > 0) ? a.zoom : 1;
+
+      const styles = [];
+      if (useInlineFocal) styles.push(`object-position:${a.focal};`);
+      if (zoomVal !== 1)  styles.push(`transform:scale(${zoomVal}); will-change:transform;`);
+      const styleAttr = styles.length ? `style="${styles.join(' ')}"` : '';
+
+      const focalClass = tailwindClass || 'object-center';
+
+      return `
+        <article class="group rounded-2xl overflow-hidden border bg-white">
+          <a href="./artwork.html?id=${encodeURIComponent(a.id)}" class="block">
+            <div class="aspect-[4/3] bg-neutral-100 overflow-hidden">
+              <img src="${a.image}" alt="${a.title}"
+                   class="w-full h-full object-cover ${focalClass} transition"
+                   ${styleAttr}/>
             </div>
-          </div>
-        </div>
-      </a>
-    </article>`;
-}
+            <div class="p-3">
+              <h3 class="font-medium">${a.title}</h3>
+              <p class="text-sm text-neutral-600">${a.medium} • ${a.size_cm} • ${a.year}</p>
+              <div class="mt-2 flex items-center justify-between text-sm">
+                <span class="font-medium">${a.price || "AED —"}</span>
+                <div class="flex items-center gap-2">
+                  ${a.collection ? '<span class="px-2 py-0.5 rounded-full border">' + a.collection + '</span>' : ''}
+                  ${a.size ? '<span class="px-2 py-0.5 rounded-full border">' + a.size + '</span>' : ''}
+                </div>
+              </div>
+            </div>
+          </a>
+        </article>`;
+    }
 
     function render(){
-      const q = (search.value||'').toLowerCase();
-      const coll = filterCollection.value;
-      const yr = filterYear.value;
-      const sz = filterSize.value;
-      const items = window.ARTWORKS.filter(a => (
-        (!coll || a.collection === coll) &&
+      const q   = (search?.value || '').toLowerCase();
+      const coll= filterCollection?.value || '';
+      const yr  = filterYear?.value || '';
+      const sz  = filterSize?.value || '';
+      const mode= sortBy?.value || 'default';
+
+      let items = (window.ARTWORKS || []).filter(a => (
+        (!coll || (a.collection || '') === coll) &&
         (!yr || String(a.year) === yr) &&
         (!sz || (a.size || '') === sz) &&
         (!q || `${a.title} ${a.medium} ${a.collection}`.toLowerCase().includes(q))
       ));
+
+      items = sortItems(items, mode);
+
       grid.innerHTML = items.map(card).join('');
-      document.getElementById('empty').classList.toggle('hidden', items.length!==0);
+      document.getElementById('empty').classList.toggle('hidden', items.length !== 0);
     }
 
-    [search, filterCollection, filterYear, filterSize].forEach(el=> el.addEventListener('input', render));
+    [search, filterCollection, filterYear, filterSize, sortBy]
+      .filter(Boolean)
+      .forEach(el => el.addEventListener('input', render));
+
     setupFilters();
     render();
   </script>
