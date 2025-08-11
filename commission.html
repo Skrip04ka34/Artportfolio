@@ -1,1 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Commission Artwork — Daria Avdeeva</title>
+  <meta name="description" content="Request a custom commission by Daria Avdeeva" />
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-neutral-50 text-neutral-900 antialiased">
+  <header class="sticky top-0 z-30 bg-white/80 backdrop-blur border-b">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-9 h-9 rounded-full bg-neutral-900 text-white grid place-content-center font-semibold">DA</div>
+        <a href="./index.html" class="text-lg font-semibold leading-tight">Daria Avdeeva</a>
+      </div>
+      <nav class="hidden sm:flex items-center gap-6 text-sm">
+        <a href="./gallery.html" class="hover:opacity-70">Works</a>
+        <a href="./about.html" class="hover:opacity-70">About Daria</a>
+        <a href="./commission.html" class="hover:opacity-70">Commission Artwork</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 py-10">
+    <section class="mb-8">
+      <h1 class="text-3xl font-bold mb-2">Commission an Artwork</h1>
+      <p class="text-neutral-700">
+        Looking for a custom piece—portrait, still life, or a concept tailored to your space? Share a few details below. Daria will reply with timelines, pricing, and next steps.
+      </p>
+      <div class="mt-4 grid md:grid-cols-3 gap-3 text-sm text-neutral-700">
+        <div class="rounded-xl border bg-white p-4">
+          <h3 class="font-semibold mb-1">1. Vision & Reference</h3>
+          <p>Describe the subject, mood, palette, and share any reference images or a work from the gallery you like.</p>
+        </div>
+        <div class="rounded-xl border bg-white p-4">
+          <h3 class="font-semibold mb-1">2. Proposal</h3>
+          <p>We’ll align on size, medium, price, and timeline. A deposit confirms the commission.</p>
+        </div>
+        <div class="rounded-xl border bg-white p-4">
+          <h3 class="font-semibold mb-1">3. Creation & Delivery</h3>
+          <p>Regular progress updates. Drying/varnishing times depend on medium. Pickup or shipping arranged.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="rounded-2xl border bg-white p-6">
+      <h2 class="text-xl font-semibold mb-3">Request form</h2>
+      <form id="commissionForm" class="grid md:grid-cols-2 gap-4">
+        <div>
+          <label class="block text-sm text-neutral-600 mb-1">Your name</label>
+          <input id="cf_name" class="w-full px-3 py-2 border rounded-xl bg-white" required />
+        </div>
+        <div>
+          <label class="block text-sm text-neutral-600 mb-1">Email</label>
+          <input id="cf_email" type="email" class="w-full px-3 py-2 border rounded-xl bg-white" required />
+        </div>
+        <div>
+          <label class="block text-sm text-neutral-600 mb-1">Phone (optional)</label>
+          <input id="cf_phone" class="w-full px-3 py-2 border rounded-xl bg-white" />
+        </div>
+        <div>
+          <label class="block text-sm text-neutral-600 mb-1">Target size (cm)</label>
+          <input id="cf_size" placeholder="e.g., 60 × 80" class="w-full px-3 py-2 border rounded-xl bg-white" />
+        </div>
+
+        <div class="md:col-span-2">
+          <label class="block text-sm text-neutral-600 mb-1">Medium preference</label>
+          <select id="cf_medium" class="w-full px-3 py-2 border rounded-xl bg-white">
+            <option value="">Open to suggestions</option>
+            <option>Oil on Canvas</option>
+            <option>Charcoal on Paper</option>
+          </select>
+        </div>
+
+        <div class="md:col-span-2">
+          <label class="block text-sm text-neutral-600 mb-1">Reference (optional)</label>
+          <select id="cf_reference" class="w-full px-3 py-2 border rounded-xl bg-white">
+            <option value="">— Select from gallery (optional) —</option>
+          </select>
+        </div>
+
+        <div class="md:col-span-2">
+          <label class="block text-sm text-neutral-600 mb-1">Describe your idea</label>
+          <textarea id="cf_notes" rows="5" class="w-full px-3 py-2 border rounded-xl bg-white" placeholder="Tell us about the subject, colors, mood, deadline, and any special requests…" required></textarea>
+        </div>
+
+        <div class="md:col-span-2 flex gap-3">
+          <button class="px-4 py-2 rounded-2xl bg-neutral-900 text-white" type="submit">Send request</button>
+          <a href="mailto:artist.dariaavd@gmail.com" class="px-4 py-2 rounded-2xl border">Email directly</a>
+        </div>
+      </form>
+      <p class="text-xs text-neutral-500 mt-3">By submitting, your email app will open with a pre-filled message you can review and send.</p>
+    </section>
+
+    <section class="mt-8">
+      <div class="rounded-2xl border bg-white p-6">
+        <h3 class="text-xl font-semibold mb-2">Contact</h3>
+        <p class="text-neutral-700">Email: <a href="mailto:artist.dariaavd@gmail.com" class="underline">artist.dariaavd@gmail.com</a></p>
+        <p class="text-neutral-700">Instagram: <a href="https://instagram.com/dariadrawsart" class="underline">@dariadrawsart</a></p>
+        <p class="text-neutral-700">Mobile: 0563443141</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="py-10 text-center text-sm text-neutral-500">© <span id="year"></span> Daria Avdeeva. All rights reserved.</footer>
+
+  <!-- Load shared data for reference dropdown -->
+  <script src="./artworks.js"></script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Populate "Reference" dropdown from artworks
+    (window.ARTWORKS || []).forEach(a => {
+      const opt = document.createElement('option');
+      opt.value = a.title;
+      opt.textContent = a.title;
+      document.getElementById('cf_reference').appendChild(opt);
+    });
+
+    // Handle submit via mailto
+    document.getElementById('commissionForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name  = document.getElementById('cf_name').value.trim();
+      const email = document.getElementById('cf_email').value.trim();
+      const phone = document.getElementById('cf_phone').value.trim();
+      const size  = document.getElementById('cf_size').value.trim();
+      const medium= document.getElementById('cf_medium').value.trim();
+      const ref   = document.getElementById('cf_reference').value.trim();
+      const notes = document.getElementById('cf_notes').value.trim();
+
+      const to = "artist.dariaavd@gmail.com";
+      const subject = `Commission request — ${name}`;
+      const bodyLines = [
+        `Name: ${name}`,
+        `Email: ${email}`,
+        phone ? `Phone: ${phone}` : null,
+        size ? `Target size: ${size}` : null,
+        medium ? `Medium preference: ${medium}` : null,
+        ref ? `Reference: ${ref}` : null,
+        "",
+        "Project details:",
+        notes
+      ].filter(Boolean);
+
+      const mailto = `mailto:${encodeURIComponent(to)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyLines.join("\\n"))}`;
+      window.location.href = mailto;
+    });
+  </script>
+</body>
+</html>
 
