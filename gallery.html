@@ -30,9 +30,6 @@
       </div>
       <div class="flex flex-wrap gap-2">
         <input id="search" placeholder="Search title, medium…" class="px-3 py-2 border rounded-xl text-sm bg-white" />
-        <select id="filterMedium" class="px-3 py-2 border rounded-xl text-sm bg-white">
-  <option value="">All mediums</option>
-</select>
         <select id="filterCollection" class="px-3 py-2 border rounded-xl text-sm bg-white">
           <option value="">All collections</option>
         </select>
@@ -44,6 +41,10 @@
           <option>Large</option>
           <option>Extra Large</option>
         </select>
+        <!-- New: Medium filter -->
+        <select id="filterMedium" class="px-3 py-2 border rounded-xl text-sm bg-white">
+          <option value="">All mediums</option>
+        </select>
         <!-- Sort control -->
         <select id="sortBy" class="px-3 py-2 border rounded-xl text-sm bg-white">
           <option value="name_az">Name (A → Z)</option>
@@ -52,7 +53,7 @@
           <option value="price_hl">Price (High → Low)</option>
           <option value="size_s_xl">Size (Small → XL)</option>
           <option value="size_xl_s">Size (XL → Small)</option>
-          <option value="default">Default</option>
+          <option value="default">Default (Original)</option>
         </select>
       </div>
     </div>
@@ -71,25 +72,28 @@
     const filterCollection = document.getElementById('filterCollection');
     const filterYear = document.getElementById('filterYear');
     const filterSize = document.getElementById('filterSize');
+    const filterMedium = document.getElementById('filterMedium');
     const sortBy = document.getElementById('sortBy');
 
     // Tag original order so "Default (Original)" always works
     (window.ARTWORKS || []).forEach((a, i) => { a._i = i; });
 
     function setupFilters(){
-      const mediums = Array.from(new Set((window.ARTWORKS||[]).map(a => a.medium || "Unknown"))).sort();
-filterMedium.innerHTML = `<option value="">All mediums</option>` + mediums.map(m=>`<option>${m}</option>`).join('');
+      const data = (window.ARTWORKS || []);
 
-      const collections = Array.from(new Set((window.ARTWORKS||[]).map(a => a.collection || "Uncategorized"))).sort();
+      const collections = Array.from(new Set(data.map(a => a.collection || "Uncategorized"))).sort();
       filterCollection.innerHTML = `<option value="">All collections</option>` + collections.map(c=>`<option>${c}</option>`).join('');
 
-      const years = Array.from(new Set((window.ARTWORKS||[]).map(a => a.year).filter(Boolean))).sort((a,b)=>b-a);
+      const years = Array.from(new Set(data.map(a => a.year).filter(Boolean))).sort((a,b)=>b-a);
       filterYear.innerHTML = `<option value="">All years</option>` + years.map(y=>`<option>${y}</option>`).join('');
+
+      const mediums = Array.from(new Set(data.map(a => a.medium || "Unknown"))).sort();
+      filterMedium.innerHTML = `<option value="">All mediums</option>` + mediums.map(m=>`<option>${m}</option>`).join('');
 
       if (sortBy) sortBy.value = 'default';
     }
 
-    // Safely parse "AED 10,000" -> 10000
+    // Parse "AED 10,000" -> 10000
     function priceNumber(p){
       if (!p) return NaN;
       const s = String(p).replace(/[^\d.]/g, "");
@@ -162,13 +166,12 @@ filterMedium.innerHTML = `<option value="">All mediums</option>` + mediums.map(m
     }
 
     function render(){
-      const q   = (search?.value || '').toLowerCase();
-      const coll= filterCollection?.value || '';
-      const yr  = filterYear?.value || '';
-      const sz  = filterSize?.value || '';
-      const mode= sortBy?.value || 'default';
-      const filterMedium = document.getElementById('filterMedium');
-
+      const q    = (search?.value || '').toLowerCase();
+      const coll = filterCollection?.value || '';
+      const yr   = filterYear?.value || '';
+      const sz   = filterSize?.value || '';
+      const med  = filterMedium?.value || '';
+      const mode = sortBy?.value || 'default';
 
       let items = (window.ARTWORKS || []).filter(a => (
         (!coll || (a.collection || '') === coll) &&
@@ -184,7 +187,7 @@ filterMedium.innerHTML = `<option value="">All mediums</option>` + mediums.map(m
       document.getElementById('empty').classList.toggle('hidden', items.length !== 0);
     }
 
-    [search, filterMedium, filterCollection, filterYear, filterSize, sortBy]
+    [search, filterCollection, filterYear, filterSize, filterMedium, sortBy]
       .filter(Boolean)
       .forEach(el => el.addEventListener('input', render));
 
