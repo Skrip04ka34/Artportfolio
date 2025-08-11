@@ -41,7 +41,6 @@
           <option>Large</option>
           <option>Extra Large</option>
         </select>
-        <!-- New: Medium filter -->
         <select id="filterMedium" class="px-3 py-2 border rounded-xl text-sm bg-white">
           <option value="">All mediums</option>
         </select>
@@ -53,7 +52,7 @@
           <option value="price_hl">Price (High → Low)</option>
           <option value="size_s_xl">Size (Small → XL)</option>
           <option value="size_xl_s">Size (XL → Small)</option>
-          <option value="default">Default (Original)</option>
+          <option value="default">Default (Year ↓)</option>
         </select>
       </div>
     </div>
@@ -75,7 +74,7 @@
     const filterMedium = document.getElementById('filterMedium');
     const sortBy = document.getElementById('sortBy');
 
-    // Tag original order so "Default (Original)" always works
+    // Tag original array order (stable tiebreaker)
     (window.ARTWORKS || []).forEach((a, i) => { a._i = i; });
 
     function setupFilters(){
@@ -115,11 +114,18 @@
         case 'size_s_xl':return items.slice().sort((a,b)=>(sizeRank(a.size)-sizeRank(b.size)));
         case 'size_xl_s':return items.slice().sort((a,b)=>(sizeRank(b.size)-sizeRank(a.size)));
         case 'default':
-        default:         return items.slice().sort((a,b)=>(a._i - b._i));
+        default:
+          // Year DESC first; within same year keep original order
+          return items.slice().sort((a,b) => {
+            const ay = (typeof a.year === 'number') ? a.year : (parseInt(a.year) || -Infinity);
+            const by = (typeof b.year === 'number') ? b.year : (parseInt(b.year) || -Infinity);
+            if (ay !== by) return by - ay;      // newer first
+            return a._i - b._i;                 // stable within year
+          });
       }
     }
 
-    // Card renderer with focal + zoom support
+    // Card renderer with focal + (optional) zoom
     function card(a){
       const focalMap = {
         top: 'object-top',
