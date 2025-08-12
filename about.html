@@ -12,11 +12,9 @@
     <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
       <div class="flex items-center gap-3">
         <div class="w-9 h-9 rounded-full bg-neutral-900 text-white grid place-content-center font-semibold">DA</div>
-<a href="./index.html" class="text-lg font-semibold leading-tight">
-  Daria <br class="sm:hidden"/> Avdeeva
-</a>
+<a href="./index.html" class="text-lg font-semibold leading-tight"> Daria <br class="sm:hidden"/> Avdeeva </a>
       </div>
-      <nav class="hidden sm:flex items-center gap-6 text-sm">
+     <nav class="flex items-center gap-4 text-sm overflow-x-auto whitespace-nowrap">
         <a href="./gallery.html" class="hover:opacity-70">All <br class="sm:hidden"/>Works</a>
         <a href="./about.html" class="hover:opacity-70">About <br class="sm:hidden"/>Daria</a>
         <a href="./commission.html" class="hover:opacity-70">Commission <br class="sm:hidden"/>Artwork</a>
@@ -25,29 +23,29 @@
   </header>
 
   <main class="max-w-6xl mx-auto px-4 py-10">
-    <section class="grid md:grid-cols-2 gap-8 items-start">
-      <div class="aspect-[4/3] rounded-2xl overflow-hidden shadow bg-neutral-200">
-        <img src="./images/Daria-Closeup.jpg" alt="Daria Avdeeva"
-             class="w-full h-full object-cover" />
-      </div>
-      <div>
-        <h1 class="text-3xl font-bold mb-3">About Daria</h1>
-     <p class="text-neutral-700 leading-relaxed mt-3">
-    Daria Avdeeva is an oil painter based in Dubai, UAE. Daria’s artistic journey is deeply rooted in the rigorous traditions of classical oil painting techniques she studied in esteemed academies across Italy, Russia, and Bulgaria. Born in Russia and raised in the UAE since 1997, she grew up immersed in a dynamic fusion of cultures that enriched her artistic vision. From a young age, she displayed a natural inclination toward drawing and painting, which soon evolved into a disciplined pursuit of fine art. 
-  </p>
-     
-        <p class="text-neutral-700 leading-relaxed mt-3">
-    Her training in traditional schools provided her with a strong foundation in still life, portraiture, and figurative painting, emphasizing technical precision, composition, and emotional depth. These formative experiences instilled in her a deep appreciation for classical methods while also encouraging a unique, contemporary interpretation. As she developed her voice, Daria began blending these time-honored techniques with a modern sensibility, resulting in vibrant, emotionally resonant works that celebrate both tradition and innovation. 
-  </p>
-               <p class="text-neutral-700 leading-relaxed mt-3">
-    Her compositions are distinguished by their lively colour palettes and a fresh perspective that bridges the past with the present. Through dedicated study and a relentless curiosity, Daria continues to evolve, constantly exploring new ways to push the boundaries of her craft.
-  </p> 
-      </div>
-    </section>
+  <section class="grid md:grid-cols-2 gap-8 items-start">
+    <!-- Left: image -->
+    <div class="aspect-[4/3] rounded-2xl overflow-hidden shadow bg-neutral-200">
+      <img src="./images/Daria-Closeup.jpg" alt="Daria Avdeeva" class="w-full h-full object-cover" />
+    </div>
 
-    <section class="mt-10">
-      <h2 class="text-2xl font-semibold mb-3">Previous Exhibitions</h2>
-      <ul class="list-disc pl-6 space-y-1 text-neutral-700">
+    <!-- Right: bio + exhibitions + contact -->
+    <div>
+      <h1 class="text-3xl font-bold mb-3">About Daria</h1>
+
+      <p class="text-neutral-700 leading-relaxed">
+        Daria Avdeeva is an oil painter based in Dubai, UAE. Daria’s artistic journey is deeply rooted in the rigorous traditions of classical oil painting techniques she studied in esteemed academies across Italy, Russia, and Bulgaria. Born in Russia and raised in the UAE since 1997, she grew up immersed in a dynamic fusion of cultures that enriched her artistic vision. From a young age, she displayed a natural inclination toward drawing and painting, which soon evolved into a disciplined pursuit of fine art.
+      </p>
+      <p class="text-neutral-700 leading-relaxed mt-3">
+        Her training in traditional schools provided her with a strong foundation in still life, portraiture, and figurative painting, emphasizing technical precision, composition, and emotional depth. These formative experiences instilled in her a deep appreciation for classical methods while also encouraging a unique, contemporary interpretation. As she developed her voice, Daria began blending these time-honored techniques with a modern sensibility, resulting in vibrant, emotionally resonant works that celebrate both tradition and innovation.
+      </p>
+      <p class="text-neutral-700 leading-relaxed mt-3">
+        Her compositions are distinguished by their lively colour palettes and a fresh perspective that bridges the past with the present. Through dedicated study and a relentless curiosity, Daria continues to evolve, constantly exploring new ways to push the boundaries of her craft.
+      </p>
+
+      <!-- Exhibitions moved up here -->
+      <h2 class="text-2xl font-semibold mt-6 mb-2">Previous Exhibitions</h2>
+      <ul class="md:sticky md:top-24 max-h-[70vh] overflow-auto list-disc pl-6 space-y-1 text-neutral-700">
         <li>World Art Dubai (2025), Dubai, UAE</li>
         <li>Portrait Art Muse (2025), Dubai, UAE</li>
         <li>The Art of Light, SAKKU & UPSTAIRS GALLERY (2025), Dubai, UAE</li>
@@ -69,17 +67,17 @@
         <li>Dada Cultural Bar & Russian Cultural Center (2016), Sofia, Bulgaria</li>
         <li>Dubai International Arts Center (2013), Dubai, UAE</li>
       </ul>
-    </section>
 
-    <section class="mt-10">
-      <div class="rounded-2xl border bg-white p-6">
+      <!-- Contact stays right below -->
+      <div class="mt-6 rounded-2xl border bg-white p-6">
         <h3 class="text-xl font-semibold mb-2">Contact</h3>
         <p class="text-neutral-700">Email: <a href="mailto:artist.dariaavd@gmail.com" class="underline">artist.dariaavd@gmail.com</a></p>
         <p class="text-neutral-700">Instagram: <a href="https://instagram.com/dariadrawsart" class="underline">@dariadrawsart</a></p>
         <p class="text-neutral-700">Mobile: 0563443141</p>
       </div>
-    </section>
-  </main>
+    </div>
+  </section>
+</main>
 
   <footer class="py-10 text-center text-sm text-neutral-500">© <span id="year"></span> Daria Avdeeva. All rights reserved.</footer>
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
