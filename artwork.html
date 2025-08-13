@@ -12,9 +12,9 @@
     <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
       <div class="flex items-center gap-3">
         <div class="w-9 h-9 rounded-full bg-neutral-900 text-white grid place-content-center font-semibold">DA</div>
-<a href="./index.html" class="text-lg font-semibold leading-tight">
-  Daria <br class="sm:hidden"/> Avdeeva
-</a>
+        <a href="./index.html" class="text-lg font-semibold leading-tight">
+          Daria <br class="sm:hidden"/> Avdeeva
+        </a>
       </div>
       <nav class="flex items-center gap-4 text-sm overflow-x-auto whitespace-nowrap">
         <a href="./gallery.html" class="hover:opacity-70">All <br class="sm:hidden"/>Works</a>
@@ -25,8 +25,15 @@
   </header>
 
   <main class="max-w-6xl mx-auto px-4 py-8 grid lg:grid-cols-2 gap-6 items-start">
-    <div class="aspect-[4/3] rounded-2xl overflow-hidden shadow bg-neutral-200">
-      <img id="img" alt="Artwork image" class="w-full h-full object-contain"/>
+    <!-- Carousel container (main image + controls + thumbs) -->
+    <div class="rounded-2xl overflow-hidden shadow bg-neutral-200">
+      <div class="relative aspect-[4/3]">
+        <img id="img" alt="Artwork image" class="w-full h-full object-contain transition-transform duration-300"/>
+        <!-- Prev/Next controls (auto-hidden if no extra images) -->
+        <button id="prev" class="hidden absolute left-2 top-1/2 -translate-y-1/2 rounded-full bg-white/80 hover:bg-white px-3 py-2 shadow text-xl" aria-label="Previous image">&larr;</button>
+        <button id="next" class="hidden absolute right-2 top-1/2 -translate-y-1/2 rounded-full bg-white/80 hover:bg-white px-3 py-2 shadow text-xl" aria-label="Next image">&rarr;</button>
+      </div>
+      <div id="thumbs" class="hidden p-2 flex gap-2 overflow-x-auto bg-white/60"></div>
     </div>
 
     <div>
@@ -78,9 +85,18 @@
 
       document.title = `${a.title} — ${window.ARTIST?.name || 'Artist'}`;
 
-      const imgEl = document.getElementById('img');
+      const imgEl   = document.getElementById('img');
+      const prevBtn = document.getElementById('prev');
+      const nextBtn = document.getElementById('next');
+      const thumbs  = document.getElementById('thumbs');
+
+      // Main image
       imgEl.src = a.image;
       imgEl.alt = a.title || 'Artwork image';
+
+      // Optional focal & zoom support (if present on artwork)
+      if (a.focal) imgEl.style.objectPosition = a.focal; // e.g., 'top' or '20% 50%'
+      if (a.zoom) imgEl.style.transform = `scale(${a.zoom})`;
 
       document.getElementById('title').textContent = a.title;
 
@@ -103,6 +119,52 @@
 
       document.getElementById('inquire').href = `mailto:${window.ARTIST?.email}?subject=${encodeURIComponent('Inquiry: ' + (a.title || ''))}`;
       document.getElementById('instagram').href = `https://instagram.com/${(window.ARTIST?.instagram || '').replace('@','')}`;
+
+      // ----------------------
+      // Carousel logic
+      // ----------------------
+      const support = Array.isArray(a.support_images) ? a.support_images : [];
+      const images = [a.image, ...support].filter(Boolean);
+
+      if (images.length > 1) {
+        // Show controls/strip
+        prevBtn.classList.remove('hidden');
+        nextBtn.classList.remove('hidden');
+        thumbs.classList.remove('hidden');
+
+        // Render thumbnails
+        thumbs.innerHTML = images.map((src, i) => `
+          <button class="relative w-16 h-16 shrink-0 rounded overflow-hidden border focus:outline-none focus:ring-2 focus:ring-neutral-900 ${i===0 ? 'ring-2 ring-neutral-900' : ''}" data-i="${i}" aria-label="Go to image ${i+1}">
+            <img src="${src}" class="w-full h-full object-cover" alt="thumb ${i+1}">
+          </button>
+        `).join('');
+
+        let index = 0;
+        function setActive(i){
+          index = (i + images.length) % images.length;
+          imgEl.src = images[index];
+          // keep optional focal/zoom only for the main image (index 0)
+          if (index === 0) {
+            if (a.focal) imgEl.style.objectPosition = a.focal; else imgEl.style.objectPosition = '';
+            if (a.zoom) imgEl.style.transform = `scale(${a.zoom})`; else imgEl.style.transform = '';
+          } else {
+            imgEl.style.objectPosition = '';
+            imgEl.style.transform = '';
+          }
+          // update thumb highlight
+          [...thumbs.children].forEach((btn, n) => {
+            btn.classList.toggle('ring-2', n === index);
+            btn.classList.toggle('ring-neutral-900', n === index);
+          });
+        }
+
+        prevBtn.addEventListener('click', () => setActive(index - 1));
+        nextBtn.addEventListener('click', () => setActive(index + 1));
+        thumbs.addEventListener('click', (e) => {
+          const btn = e.target.closest('button[data-i]');
+          if (btn) setActive(parseInt(btn.dataset.i, 10));
+        });
+      }
     }
 
     renderArtwork();
