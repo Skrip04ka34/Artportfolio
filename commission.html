@@ -14,7 +14,7 @@
         <div class="w-9 h-9 rounded-full bg-neutral-900 text-white grid place-content-center font-semibold">DA</div>
         <a href="./index.html" class="text-lg font-semibold leading-tight"> Daria <br class="sm:hidden"/> Avdeeva </a>
       </div>
-     <nav class="flex items-center gap-4 text-sm overflow-x-auto whitespace-nowrap">
+      <nav class="flex items-center gap-4 text-sm overflow-x-auto whitespace-nowrap">
         <a href="./gallery.html" class="hover:opacity-70">All <br class="sm:hidden"/>Works</a>
         <a href="./about.html" class="hover:opacity-70">About <br class="sm:hidden"/>Daria</a>
         <a href="./commission.html" class="hover:opacity-70">Commission <br class="sm:hidden"/>Artwork</a>
@@ -58,24 +58,24 @@
         </div>
 
         <div>
-          <label class="block text-sm text-neutral-600 mb-1">Your name</label>
+          <label class="block text-sm text-neutral-600 mb-1" for="cf_name">Your name</label>
           <input id="cf_name" name="name" class="w-full px-3 py-2 border rounded-xl bg-white" required />
         </div>
         <div>
-          <label class="block text-sm text-neutral-600 mb-1">Email</label>
+          <label class="block text-sm text-neutral-600 mb-1" for="cf_email">Email</label>
           <input id="cf_email" name="email" type="email" class="w-full px-3 py-2 border rounded-xl bg-white" required />
         </div>
         <div>
-          <label class="block text-sm text-neutral-600 mb-1">Phone (optional)</label>
+          <label class="block text-sm text-neutral-600 mb-1" for="cf_phone">Phone (optional)</label>
           <input id="cf_phone" name="phone" class="w-full px-3 py-2 border rounded-xl bg-white" />
         </div>
         <div>
-          <label class="block text-sm text-neutral-600 mb-1">Target size (cm)</label>
+          <label class="block text-sm text-neutral-600 mb-1" for="cf_size">Target size (cm)</label>
           <input id="cf_size" name="size" placeholder="e.g., 60 × 80" class="w-full px-3 py-2 border rounded-xl bg-white" />
         </div>
 
         <div class="md:col-span-2">
-          <label class="block text-sm text-neutral-600 mb-1">Medium preference</label>
+          <label class="block text-sm text-neutral-600 mb-1" for="cf_medium">Medium preference</label>
           <select id="cf_medium" name="medium" class="w-full px-3 py-2 border rounded-xl bg-white">
             <option value="">Open to suggestions</option>
             <option>Oil on Canvas</option>
@@ -84,14 +84,14 @@
         </div>
 
         <div class="md:col-span-2">
-          <label class="block text-sm text-neutral-600 mb-1">Reference (optional)</label>
+          <label class="block text-sm text-neutral-600 mb-1" for="cf_reference">Reference (optional)</label>
           <select id="cf_reference" name="reference" class="w-full px-3 py-2 border rounded-xl bg-white">
             <option value="">— Select from gallery (optional) —</option>
           </select>
         </div>
 
         <div class="md:col-span-2">
-          <label class="block text-sm text-neutral-600 mb-1">Describe your idea</label>
+          <label class="block text-sm text-neutral-600 mb-1" for="cf_notes">Describe your idea</label>
           <textarea id="cf_notes" name="notes" rows="5" class="w-full px-3 py-2 border rounded-xl bg-white" placeholder="Tell us about the subject, colors, mood, deadline, and any special requests…" required></textarea>
         </div>
 
@@ -129,97 +129,97 @@
       document.getElementById('cf_reference').appendChild(opt);
     });
 
-  const FORMSPREE_ENDPOINT = "https://script.google.com/macros/s/AKfycbyj1EHd-3vap0ubvaRjHHiYiyvT4gBelXJJxzkbuxLZq0nIsjBv1nzIJIJtUvnAQxlV/exec";
+    // Your deployed Google Apps Script web app URL
+    const FORMSPREE_ENDPOINT = "https://script.google.com/macros/s/AKfycbyj1EHd-3vap0ubvaRjHHiYiyvT4gBelXJJxzkbuxLZq0nIsjBv1nzIJIJtUvnAQxlV/exec";
 
-  const form = document.getElementById('commissionForm');
-  const statusBox = document.getElementById('cf_status');
-  const submitBtn = document.getElementById('cf_submit');
-  const submitText = document.getElementById('cf_submit_text');
-  const submitLoading = document.getElementById('cf_submit_loading');
+    const form = document.getElementById('commissionForm');
+    const statusBox = document.getElementById('cf_status');
+    const submitBtn = document.getElementById('cf_submit');
+    const submitText = document.getElementById('cf_submit_text');
+    const submitLoading = document.getElementById('cf_submit_loading');
 
-  function setLoading(isLoading) {
-    submitBtn.disabled = isLoading;
-    submitText.classList.toggle('hidden', isLoading);
-    submitLoading.classList.toggle('hidden', !isLoading);
-  }
-
-  function showStatus(message, ok = true) {
-    statusBox.textContent = message;
-    statusBox.className = "mb-3 rounded-xl border px-4 py-3 text-sm " +
-      (ok ? "bg-green-50 border-green-300 text-green-800" : "bg-red-50 border-red-300 text-red-800");
-    statusBox.classList.remove('hidden');
-  }
-
-  function buildPayload() {
-    return {
-      name: document.getElementById('cf_name').value.trim(),
-      email: document.getElementById('cf_email').value.trim(),
-      phone: document.getElementById('cf_phone').value.trim(),
-      size: document.getElementById('cf_size').value.trim(),
-      medium: document.getElementById('cf_medium').value.trim(),
-      reference: document.getElementById('cf_reference').value.trim(),
-      notes: document.getElementById('cf_notes').value.trim(),
-      ua: navigator.userAgent, // <— send user agent
-      _subject: `Commission request — ${document.getElementById('cf_name').value.trim() || 'New lead'}`
-    };
-  }
-
-  function fallbackToMailto(payload) {
-    const to = "artist.dariaavd@gmail.com";
-    const subject = payload._subject;
-    const bodyLines = [
-      `Name: ${payload.name}`,
-      `Email: ${payload.email}`,
-      payload.phone ? `Phone: ${payload.phone}` : null,
-      payload.size ? `Target size: ${payload.size}` : null,
-      payload.medium ? `Medium preference: ${payload.medium}` : null,
-      payload.reference ? `Reference: ${payload.reference}` : null,
-      "",
-      "Project details:",
-      payload.notes || ""
-    ].filter(Boolean);
-    window.location.href = `mailto:${encodeURIComponent(to)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyLines.join("\n"))}`;
-  }
-
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-
-    if (!form.checkValidity()) {
-      form.reportValidity();
-      return;
+    function setLoading(isLoading) {
+      submitBtn.disabled = isLoading;
+      submitText.classList.toggle('hidden', isLoading);
+      submitLoading.classList.toggle('hidden', !isLoading);
     }
 
-    // Honeypot
-    if (document.getElementById('cf_hp')?.value) {
-      showStatus("Thanks! Your request has been received.", true);
-      form.reset();
-      return;
+    function showStatus(message, ok = true) {
+      statusBox.textContent = message;
+      statusBox.className = "mb-3 rounded-xl border px-4 py-3 text-sm " +
+        (ok ? "bg-green-50 border-green-300 text-green-800" : "bg-red-50 border-red-300 text-red-800");
+      statusBox.classList.remove('hidden');
     }
 
-    const payload = buildPayload();
-    setLoading(true);
-    showStatus("");
-
-    try {
-      // SIMPLE request: no headers → no preflight; response may be opaque.
-      await fetch(FORMSPREE_ENDPOINT, {
-        method: "POST",
-        body: JSON.stringify(payload),
-        // If your browser still blocks it, uncomment the next line:
-        // mode: "no-cors",
-      });
-
-      // If we got here without throwing, assume success (opaque OK).
-      showStatus("Thank you! Your request was sent successfully.", true);
-      form.reset();
-    } catch (err) {
-      // Only here if the network truly failed.
-      showStatus("Network issue. Opening your email app instead…", false);
-      fallbackToMailto(payload);
-    } finally {
-      setLoading(false);
+    function buildPayload() {
+      return {
+        name: document.getElementById('cf_name').value.trim(),
+        email: document.getElementById('cf_email').value.trim(),
+        phone: document.getElementById('cf_phone').value.trim(),
+        size: document.getElementById('cf_size').value.trim(),
+        medium: document.getElementById('cf_medium').value.trim(),
+        reference: document.getElementById('cf_reference').value.trim(),
+        notes: document.getElementById('cf_notes').value.trim(),
+        _subject: `Commission request — ${document.getElementById('cf_name').value.trim() || 'New lead'}`
+      };
     }
-  });
-</script>
+
+    function fallbackToMailto(payload) {
+      const to = "artist.dariaavd@gmail.com";
+      const subject = payload._subject;
+      const bodyLines = [
+        `Name: ${payload.name}`,
+        `Email: ${payload.email}`,
+        payload.phone ? `Phone: ${payload.phone}` : null,
+        payload.size ? `Target size: ${payload.size}` : null,
+        payload.medium ? `Medium preference: ${payload.medium}` : null,
+        payload.reference ? `Reference: ${payload.reference}` : null,
+        "",
+        "Project details:",
+        payload.notes || ""
+      ].filter(Boolean);
+      window.location.href = `mailto:${encodeURIComponent(to)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyLines.join("\n"))}`;
+    }
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+
+      // Honeypot: if filled, silently "succeed"
+      if (document.getElementById('cf_hp')?.value) {
+        showStatus("Thanks! Your request has been received.", true);
+        form.reset();
+        return;
+      }
+
+      const payload = buildPayload();
+      setLoading(true);
+      showStatus("");
+
+      try {
+        // SIMPLE request (no custom headers) to avoid CORS preflight; response may be opaque.
+        await fetch(FORMSPREE_ENDPOINT, {
+          method: "POST",
+          body: JSON.stringify(payload),
+          // If you still see "Network issue" in some browsers, you can force:
+          // mode: "no-cors",
+        });
+
+        // If fetch resolved (even with an opaque response), treat as success.
+        showStatus("Thank you! Your request was sent successfully.", true);
+        form.reset();
+      } catch (err) {
+        // Only if the network truly failed do we fall back to mailto.
+        showStatus("Network issue. Opening your email app instead…", false);
+        fallbackToMailto(payload);
+      } finally {
+        setLoading(false);
+      }
+    });
+  </script>
 </body>
 </html>
