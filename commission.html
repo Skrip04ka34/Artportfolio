@@ -200,26 +200,22 @@
       setLoading(true);
       showStatus("");
 
-      try {
-        // SIMPLE request (no custom headers) to avoid CORS preflight; response may be opaque.
-        await fetch(FORMSPREE_ENDPOINT, {
-          method: "POST",
-          body: JSON.stringify(payload),
-          // If you still see "Network issue" in some browsers, you can force:
-          // mode: "no-cors",
-        });
+try {
+  await fetch(FORMSPREE_ENDPOINT, {
+    method: "POST",
+    mode: "no-cors",       // force opaque success; avoids CORS rejection
+    body: JSON.stringify(payload),
+  });
 
-        // If fetch resolved (even with an opaque response), treat as success.
-        showStatus("Thank you! Your request was sent successfully.", true);
-        form.reset();
-      } catch (err) {
-        // Only if the network truly failed do we fall back to mailto.
-        showStatus("Network issue. Opening your email app instead…", false);
-        fallbackToMailto(payload);
-      } finally {
-        setLoading(false);
-      }
-    });
+  showStatus("Thank you! Your request was sent successfully.", true);
+  form.reset();
+} catch (err) {
+  showStatus("Network issue. Opening your email app instead…", false);
+  fallbackToMailto(payload);
+} finally {
+  setLoading(false);
+}
+
   </script>
 </body>
 </html>
