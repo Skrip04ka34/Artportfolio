@@ -12,6 +12,9 @@ window.ARTWORKS = [
     status: "Available",
     price: "AED 5,000",
     image: "./images/Alfred_On_A_Blue_Bag.jpg",
+    support_images: [
+  "./images/supportimages/Alfred_On_A_Blue_Bag_s1.jpg",
+  "./images/supportimages/Alfred_On_A_Blue_Bag_s2.jpg"],
     focal: "top",
     location: "Dubai",
     description: "Alfred on a Blue Bag is a captivating oil painting capturing the essence of feline anticipation. Alfred, the artist's cat, perches on a textured blue bag, a ball nestled between his paws. The artist's skillful rendering of Alfred's fur invites tactile exploration. Alfred's eager expression, directed towards the unseen owner, conveys anticipation, establishing a connection with the viewer. The blue bag, with its varied shades, creates a dynamic surface, complemented by strokes of yellow and orange in the background. This masterpiece blends texture, color, and emotion to evoke the shared experiences of pet ownership and companionship."
