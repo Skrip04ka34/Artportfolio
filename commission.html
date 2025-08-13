@@ -129,104 +129,97 @@
       document.getElementById('cf_reference').appendChild(opt);
     });
 
-    const FORMSPREE_ENDPOINT = "https://script.google.com/macros/s/AKfycbyj1EHd-3vap0ubvaRjHHiYiyvT4gBelXJJxzkbuxLZq0nIsjBv1nzIJIJtUvnAQxlV/exec";
+  const FORMSPREE_ENDPOINT = "https://script.google.com/macros/s/AKfycbyj1EHd-3vap0ubvaRjHHiYiyvT4gBelXJJxzkbuxLZq0nIsjBv1nzIJIJtUvnAQxlV/exec";
 
-    const form = document.getElementById('commissionForm');
-    const statusBox = document.getElementById('cf_status');
-    const submitBtn = document.getElementById('cf_submit');
-    const submitText = document.getElementById('cf_submit_text');
-    const submitLoading = document.getElementById('cf_submit_loading');
+  const form = document.getElementById('commissionForm');
+  const statusBox = document.getElementById('cf_status');
+  const submitBtn = document.getElementById('cf_submit');
+  const submitText = document.getElementById('cf_submit_text');
+  const submitLoading = document.getElementById('cf_submit_loading');
 
-    function setLoading(isLoading) {
-      submitBtn.disabled = isLoading;
-      submitText.classList.toggle('hidden', isLoading);
-      submitLoading.classList.toggle('hidden', !isLoading);
-    }
-
-    function showStatus(message, ok = true) {
-      statusBox.textContent = message;
-      statusBox.className = "mb-3 rounded-xl border px-4 py-3 text-sm " +
-        (ok ? "bg-green-50 border-green-300 text-green-800" : "bg-red-50 border-red-300 text-red-800");
-      statusBox.classList.remove('hidden');
-    }
-
-    function buildPayload() {
-      return {
-        name: document.getElementById('cf_name').value.trim(),
-        email: document.getElementById('cf_email').value.trim(),
-        phone: document.getElementById('cf_phone').value.trim(),
-        size: document.getElementById('cf_size').value.trim(),
-        medium: document.getElementById('cf_medium').value.trim(),
-        reference: document.getElementById('cf_reference').value.trim(),
-        notes: document.getElementById('cf_notes').value.trim(),
-        _subject: `Commission request — ${document.getElementById('cf_name').value.trim() || 'New lead'}`
-      };
-    }
-
-    function fallbackToMailto(payload) {
-      const to = "artist.dariaavd@gmail.com";
-      const subject = payload._subject;
-      const bodyLines = [
-        `Name: ${payload.name}`,
-        `Email: ${payload.email}`,
-        payload.phone ? `Phone: ${payload.phone}` : null,
-        payload.size ? `Target size: ${payload.size}` : null,
-        payload.medium ? `Medium preference: ${payload.medium}` : null,
-        payload.reference ? `Reference: ${payload.reference}` : null,
-        "",
-        "Project details:",
-        payload.notes || ""
-      ].filter(Boolean);
-
-      window.location.href = `mailto:${encodeURIComponent(to)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyLines.join("\n"))}`;
-    }
-
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-
-      if (!form.checkValidity()) {
-        form.reportValidity();
-        return;
-      }
-
-      if (document.getElementById('cf_hp').value) {
-        showStatus("Thanks! Your request has been received.", true);
-        form.reset();
-        return;
-      }
-
-      const payload = buildPayload();
-      setLoading(true);
-      showStatus("");
-
-try {
-  // Send a SIMPLE request: no custom headers → no CORS preflight.
-  const res = await fetch(FORMSPREE_ENDPOINT, {
-    method: "POST",
-    // IMPORTANT: no headers here (especially no "Content-Type")
-    body: JSON.stringify(payload),
-
-    // If you still get a "Network issue", uncomment this line:
-    // mode: "no-cors",
-  });
-
-  // If we didn't force no-cors, res.ok might be readable. If it’s opaque, just show success.
-  if (typeof res.ok === "boolean" && !res.ok) {
-    showStatus("Couldn’t send via the site. Opening your email app instead…", false);
-    fallbackToMailto(payload);
-  } else {
-    showStatus("Thank you! Your request was sent successfully.", true);
-    form.reset();
+  function setLoading(isLoading) {
+    submitBtn.disabled = isLoading;
+    submitText.classList.toggle('hidden', isLoading);
+    submitLoading.classList.toggle('hidden', !isLoading);
   }
-} catch (err) {
-  showStatus("Network issue. Opening your email app instead…", false);
-  fallbackToMailto(payload);
-} finally {
-  setLoading(false);
-}
 
+  function showStatus(message, ok = true) {
+    statusBox.textContent = message;
+    statusBox.className = "mb-3 rounded-xl border px-4 py-3 text-sm " +
+      (ok ? "bg-green-50 border-green-300 text-green-800" : "bg-red-50 border-red-300 text-red-800");
+    statusBox.classList.remove('hidden');
+  }
 
-    });
-  </script>
+  function buildPayload() {
+    return {
+      name: document.getElementById('cf_name').value.trim(),
+      email: document.getElementById('cf_email').value.trim(),
+      phone: document.getElementById('cf_phone').value.trim(),
+      size: document.getElementById('cf_size').value.trim(),
+      medium: document.getElementById('cf_medium').value.trim(),
+      reference: document.getElementById('cf_reference').value.trim(),
+      notes: document.getElementById('cf_notes').value.trim(),
+      ua: navigator.userAgent, // <— send user agent
+      _subject: `Commission request — ${document.getElementById('cf_name').value.trim() || 'New lead'}`
+    };
+  }
+
+  function fallbackToMailto(payload) {
+    const to = "artist.dariaavd@gmail.com";
+    const subject = payload._subject;
+    const bodyLines = [
+      `Name: ${payload.name}`,
+      `Email: ${payload.email}`,
+      payload.phone ? `Phone: ${payload.phone}` : null,
+      payload.size ? `Target size: ${payload.size}` : null,
+      payload.medium ? `Medium preference: ${payload.medium}` : null,
+      payload.reference ? `Reference: ${payload.reference}` : null,
+      "",
+      "Project details:",
+      payload.notes || ""
+    ].filter(Boolean);
+    window.location.href = `mailto:${encodeURIComponent(to)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyLines.join("\n"))}`;
+  }
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+
+    // Honeypot
+    if (document.getElementById('cf_hp')?.value) {
+      showStatus("Thanks! Your request has been received.", true);
+      form.reset();
+      return;
+    }
+
+    const payload = buildPayload();
+    setLoading(true);
+    showStatus("");
+
+    try {
+      // SIMPLE request: no headers → no preflight; response may be opaque.
+      await fetch(FORMSPREE_ENDPOINT, {
+        method: "POST",
+        body: JSON.stringify(payload),
+        // If your browser still blocks it, uncomment the next line:
+        // mode: "no-cors",
+      });
+
+      // If we got here without throwing, assume success (opaque OK).
+      showStatus("Thank you! Your request was sent successfully.", true);
+      form.reset();
+    } catch (err) {
+      // Only here if the network truly failed.
+      showStatus("Network issue. Opening your email app instead…", false);
+      fallbackToMailto(payload);
+    } finally {
+      setLoading(false);
+    }
+  });
+</script>
 </body>
 </html>
