@@ -200,21 +200,17 @@
       showStatus("");
 
 try {
-  // IMPORTANT: Use a "simple request" to avoid CORS preflight:
-  // - no custom headers
-  // - no JSON content-type (let it default to text/plain)
-  // - optionally `mode: "no-cors"` if your browser still blocks it
+  // Send a SIMPLE request: no custom headers → no CORS preflight.
   const res = await fetch(FORMSPREE_ENDPOINT, {
     method: "POST",
-    // Do NOT send "Content-Type: application/json" — it triggers preflight.
+    // IMPORTANT: no headers here (especially no "Content-Type")
     body: JSON.stringify(payload),
-    // Uncomment if you still see a network error (will make response opaque):
+
+    // If you still get a "Network issue", uncomment this line:
     // mode: "no-cors",
   });
 
-  // If we didn't use no-cors, we can try to read the status.
-  // Some setups will still return a readable 200. If CORS hides it,
-  // this branch will likely still execute without throwing.
+  // If we didn't force no-cors, res.ok might be readable. If it’s opaque, just show success.
   if (typeof res.ok === "boolean" && !res.ok) {
     showStatus("Couldn’t send via the site. Opening your email app instead…", false);
     fallbackToMailto(payload);
@@ -228,6 +224,7 @@ try {
 } finally {
   setLoading(false);
 }
+
 
     });
   </script>
