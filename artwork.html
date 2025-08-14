@@ -24,7 +24,7 @@
     </div>
   </header>
 
-  <main class="max-w-6xl mx-auto px-4 py-8 grid lg:grid-cols-2 gap-6 items-start">
+  <main id="layout" class="max-w-6xl mx-auto px-4 py-8 grid lg:grid-cols-2 gap-6 items-start">
     <!-- Image area: natural aspect ratio, no forced crop -->
     <div class="rounded-2xl overflow-hidden shadow">
       <div class="relative">
@@ -89,9 +89,36 @@
       const prevBtn = document.getElementById('prev');
       const nextBtn = document.getElementById('next');
       const thumbs  = document.getElementById('thumbs');
+      const layout  = document.getElementById('layout');
+
+      // Helper: adapt layout for panoramic images
+      function adaptLayoutForImage(el){
+        // wait until the image has natural sizes
+        const apply = () => {
+          const w = el.naturalWidth || 0;
+          const h = el.naturalHeight || 0;
+          const ratio = h ? (w / h) : 1;
+          // Panoramic threshold (tweakable)
+          if (ratio >= 1.8) {
+            // Make page single-column so image gets full width
+            layout.classList.remove('lg:grid-cols-2');
+            layout.classList.add('lg:grid-cols-1');
+            // Allow a bit more vertical room
+            el.classList.remove('max-h-[80vh]');
+            el.classList.add('max-h-[90vh]');
+          } else {
+            layout.classList.add('lg:grid-cols-2');
+            layout.classList.remove('lg:grid-cols-1');
+            el.classList.add('max-h-[80vh]');
+            el.classList.remove('max-h-[90vh]');
+          }
+        };
+        if (el.complete && el.naturalWidth) apply(); else el.addEventListener('load', apply, { once: true });
+      }
 
       // Main image (full image, no crop)
       imgEl.src = a.image;
+      adaptLayoutForImage(imgEl);
       imgEl.alt = a.title || 'Artwork image';
 
       document.getElementById('title').textContent = a.title;
@@ -139,6 +166,7 @@
         function setActive(i){
           index = (i + images.length) % images.length;
           imgEl.src = images[index];
+          adaptLayoutForImage(imgEl);
           // For contain mode, we don't apply focal/zoom
           [...thumbs.children].forEach((btn, n) => {
             btn.classList.toggle('ring-2', n === index);
