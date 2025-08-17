@@ -999,7 +999,7 @@ window.ARTWORKS = [
     year: 2025,
     collection: "Animals",
     size: "Medium",
-    size_cm: "50x70",
+    size_cm: "64x94",
     medium: "Charcoal on Paper",
     status: "Available",
     price: "AED 3,000",
