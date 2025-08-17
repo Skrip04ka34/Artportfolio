@@ -12,11 +12,11 @@
     <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
       <div class="flex items-center gap-3">
         <div class="w-9 h-9 rounded-full bg-neutral-900 text-white grid place-content-center font-semibold">DA</div>
-<a href="./index.html" class="text-lg font-semibold leading-tight">
-  Daria <br class="sm:hidden"/> Avdeeva
-</a>
+        <a href="./index.html" class="text-lg font-semibold leading-tight">
+          Daria <br class="sm:hidden"/> Avdeeva
+        </a>
       </div>
-     <nav class="flex items-center gap-4 text-sm overflow-x-auto whitespace-nowrap">
+      <nav class="flex items-center gap-4 text-sm overflow-x-auto whitespace-nowrap">
         <a href="./gallery.html" class="hover:opacity-70">All <br class="sm:hidden"/>Works</a>
         <a href="./about.html" class="hover:opacity-70">About <br class="sm:hidden"/>Daria</a>
         <a href="./commission.html" class="hover:opacity-70">Commission <br class="sm:hidden"/>Artwork</a>
@@ -46,6 +46,14 @@
         <select id="filterMedium" class="px-3 py-2 border rounded-xl text-sm bg-white">
           <option value="">All mediums</option>
         </select>
+
+        <!-- Framed filter -->
+        <select id="filterFramed" class="px-3 py-2 border rounded-xl text-sm bg-white">
+          <option value="">Framed (Any)</option>
+          <option>Yes</option>
+          <option>No</option>
+        </select>
+
         <!-- Sort control -->
         <select id="sortBy" class="px-3 py-2 border rounded-xl text-sm bg-white">
           <option value="name_az">Name (A → Z)</option>
@@ -74,6 +82,7 @@
     const filterYear = document.getElementById('filterYear');
     const filterSize = document.getElementById('filterSize');
     const filterMedium = document.getElementById('filterMedium');
+    const filterFramed = document.getElementById('filterFramed');
     const sortBy = document.getElementById('sortBy');
 
     // Tag original array order (stable tiebreaker)
@@ -94,14 +103,12 @@
       if (sortBy) sortBy.value = 'default';
     }
 
-    // Parse "AED 10,000" -> 10000
     function priceNumber(p){
       if (!p) return NaN;
       const s = String(p).replace(/[^\d.]/g, "");
       return s ? parseFloat(s) : NaN;
     }
 
-    // Map size label to rank for sorting
     function sizeRank(sz){
       const map = { "Small": 0, "Medium": 1, "Large": 2, "Extra Large": 3 };
       return map[sz] ?? -1;
@@ -117,17 +124,15 @@
         case 'size_xl_s':return items.slice().sort((a,b)=>(sizeRank(b.size)-sizeRank(a.size)));
         case 'default':
         default:
-          // Year DESC first; within same year keep original order
           return items.slice().sort((a,b) => {
-            const ay = (typeof a.year === 'number') ? a.year : (parseInt(a.year) || -Infinity);
-            const by = (typeof b.year === 'number') ? b.year : (parseInt(b.year) || -Infinity);
-            if (ay !== by) return by - ay;      // newer first
-            return a._i - b._i;                 // stable within year
+            const ay = parseInt(a.year) || -Infinity;
+            const by = parseInt(b.year) || -Infinity;
+            if (ay !== by) return by - ay;
+            return a._i - b._i;
           });
       }
     }
 
-    // Card renderer with focal + (optional) zoom
     function card(a){
       const focalMap = {
         top: 'object-top',
@@ -136,18 +141,15 @@
         right: 'object-right',
         center: 'object-center'
       };
-
       const focalRaw = (a.focal || 'center').toString().trim().toLowerCase();
       const tailwindClass = focalMap[focalRaw];
-      const useInlineFocal = !tailwindClass && a.focal; // e.g., "top left", "50% 20%"
-
+      const useInlineFocal = !tailwindClass && a.focal;
       const zoomVal = (typeof a.zoom === 'number' && a.zoom > 0) ? a.zoom : 1;
 
       const styles = [];
       if (useInlineFocal) styles.push(`object-position:${a.focal};`);
       if (zoomVal !== 1)  styles.push(`transform:scale(${zoomVal}); will-change:transform;`);
       const styleAttr = styles.length ? `style="${styles.join(' ')}"` : '';
-
       const focalClass = tailwindClass || 'object-center';
 
       return `
@@ -179,6 +181,7 @@
       const yr   = filterYear?.value || '';
       const sz   = filterSize?.value || '';
       const med  = filterMedium?.value || '';
+      const fr   = filterFramed?.value || '';
       const mode = sortBy?.value || 'default';
 
       let items = (window.ARTWORKS || []).filter(a => (
@@ -186,6 +189,7 @@
         (!yr || String(a.year) === yr) &&
         (!sz || (a.size || '') === sz) &&
         (!med || (a.medium || '') === med) &&
+        (!fr || (a.framed || '') === fr) &&
         (!q || `${a.title} ${a.medium} ${a.collection}`.toLowerCase().includes(q))
       ));
 
@@ -195,7 +199,7 @@
       document.getElementById('empty').classList.toggle('hidden', items.length !== 0);
     }
 
-    [search, filterCollection, filterYear, filterSize, filterMedium, sortBy]
+    [search, filterCollection, filterYear, filterSize, filterMedium, filterFramed, sortBy]
       .filter(Boolean)
       .forEach(el => el.addEventListener('input', render));
 
