@@ -25,11 +25,10 @@
   </header>
 
   <main id="layout" class="max-w-6xl mx-auto px-4 py-8 grid lg:grid-cols-2 gap-6 items-start">
-    <!-- Image area: natural aspect ratio, no forced crop -->
+    <!-- Image area -->
     <div class="rounded-2xl overflow-hidden shadow">
       <div class="relative">
         <img id="img" alt="Artwork image" class="block w-full h-auto max-h-[80vh] mx-auto object-contain transition-transform duration-300"/>
-        <!-- Prev/Next controls (auto-hidden if no extra images) -->
         <button id="prev" class="hidden absolute left-2 top-1/2 -translate-y-1/2 rounded-full bg-white/80 hover:bg-white px-3 py-2 shadow text-xl" aria-label="Previous image">&larr;</button>
         <button id="next" class="hidden absolute right-2 top-1/2 -translate-y-1/2 rounded-full bg-white/80 hover:bg-white px-3 py-2 shadow text-xl" aria-label="Next image">&rarr;</button>
       </div>
@@ -53,7 +52,7 @@
     </div>
   </main>
 
-  <!-- Load shared data FIRST -->
+  <!-- Load shared data -->
   <script src="./artworks.js"></script>
 
   <!-- Page script -->
@@ -63,7 +62,6 @@
       return url.searchParams.get(key);
     }
 
-    // helper: one labeled row (bold label, regular value)
     function row(label, value){
       if (!value && value !== 0) return "";
       return `
@@ -91,19 +89,14 @@
       const thumbs  = document.getElementById('thumbs');
       const layout  = document.getElementById('layout');
 
-      // Helper: adapt layout for panoramic images
       function adaptLayoutForImage(el){
-        // wait until the image has natural sizes
         const apply = () => {
           const w = el.naturalWidth || 0;
           const h = el.naturalHeight || 0;
           const ratio = h ? (w / h) : 1;
-          // Panoramic threshold (tweakable)
           if (ratio >= 1.8) {
-            // Make page single-column so image gets full width
             layout.classList.remove('lg:grid-cols-2');
             layout.classList.add('lg:grid-cols-1');
-            // Allow a bit more vertical room
             el.classList.remove('max-h-[80vh]');
             el.classList.add('max-h-[90vh]');
           } else {
@@ -116,47 +109,39 @@
         if (el.complete && el.naturalWidth) apply(); else el.addEventListener('load', apply, { once: true });
       }
 
-      // Main image (full image, no crop)
+      // Main image
       imgEl.src = a.image;
       adaptLayoutForImage(imgEl);
       imgEl.alt = a.title || 'Artwork image';
 
       document.getElementById('title').textContent = a.title;
 
-      // Labeled meta rows
-      
+      // ✅ Meta rows with Framed
       const metaHTML = [
         row("Collection", a.collection),
         row("Medium", a.medium),
         row("Size in cm", a.size_cm),
         row("Size", a.size),
         row("Year", a.year),
-        row("Location", a.location)
+        row("Location", a.location),
+        row("Framed", a.framed)
       ].join("");
       document.getElementById('metaRows').innerHTML = metaHTML;
 
-      // Price already formatted like "AED 10,000" in artworks.js
       document.getElementById('price').textContent = a.price || 'AED —';
-
-      // Description supports <strong>/<em> tags
       document.getElementById('desc').innerHTML = a.description || '';
 
       document.getElementById('inquire').href = `mailto:${window.ARTIST?.email}?subject=${encodeURIComponent('Inquiry: ' + (a.title || ''))}`;
       document.getElementById('instagram').href = `https://instagram.com/${(window.ARTIST?.instagram || '').replace('@','')}`;
 
-      // ----------------------
-      // Carousel logic (uses a.support_images if present)
-      // ----------------------
       const support = Array.isArray(a.support_images) ? a.support_images : [];
       const images = [a.image, ...support].filter(Boolean);
 
       if (images.length > 1) {
-        // Show controls/strip
         prevBtn.classList.remove('hidden');
         nextBtn.classList.remove('hidden');
         thumbs.classList.remove('hidden');
 
-        // Render thumbnails
         thumbs.innerHTML = images.map((src, i) => `
           <button class="relative w-16 h-16 shrink-0 rounded overflow-hidden border focus:outline-none focus:ring-2 focus:ring-neutral-900 ${i===0 ? 'ring-2 ring-neutral-900' : ''}" data-i="${i}" aria-label="Go to image ${i+1}">
             <img src="${src}" class="w-full h-full object-cover" alt="thumb ${i+1}">
@@ -168,7 +153,6 @@
           index = (i + images.length) % images.length;
           imgEl.src = images[index];
           adaptLayoutForImage(imgEl);
-          // For contain mode, we don't apply focal/zoom
           [...thumbs.children].forEach((btn, n) => {
             btn.classList.toggle('ring-2', n === index);
             btn.classList.toggle('ring-neutral-900', n === index);
