@@ -131,6 +131,7 @@
         row("Size", a.size),
         row("Year", a.year),
         row("Location", a.location)
+        row("Framed", a.framed === "Yes" ? "Yes" : "No")
       ].join("");
       document.getElementById('metaRows').innerHTML = metaHTML;
 
