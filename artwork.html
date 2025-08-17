@@ -124,7 +124,7 @@
       document.getElementById('title').textContent = a.title;
 
       // Labeled meta rows
-      const framed = (String(a.framed).toLowerCase() === "yes" || a.framed === true) ? "Yes" : "No";
+      const framed = (a.framed && String(a.framed).toLowerCase() === "yes") ? "Yes" : "No";
       
       const metaHTML = [
         row("Collection", a.collection),
