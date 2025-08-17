@@ -1014,7 +1014,7 @@ window.ARTWORKS = [
   {
     id: "a56",
     title: "Dalmatian",
-    year: 2025,
+    year: 2024,
     collection: "Animals",
     size: "Medium",
     size_cm: "52x42",
@@ -1044,7 +1044,7 @@ window.ARTWORKS = [
   {
     id: "a58",
     title: "Red Socks",
-    year: 2025,
+    year: 2024,
     collection: "Still Life",
     size: "Small",
     size_cm: "32x23",
@@ -1059,7 +1059,7 @@ window.ARTWORKS = [
   {
     id: "a59",
     title: "Red Bra",
-    year: 2025,
+    year: 2024,
     collection: "Still Life",
     size: "Small",
     size_cm: "42x32",
@@ -1074,7 +1074,7 @@ window.ARTWORKS = [
   {
     id: "a60",
     title: "Boxing Wrap",
-    year: 2025,
+    year: 2024,
     collection: "Still Life",
     size: "Small",
     size_cm: "42x32",
@@ -1089,7 +1089,7 @@ window.ARTWORKS = [
   {
     id: "a61",
     title: "Tube of Oil Paint",
-    year: 2025,
+    year: 2024,
     collection: "Still Life",
     size: "Small",
     size_cm: "25x25",
