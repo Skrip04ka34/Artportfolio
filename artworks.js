@@ -225,8 +225,8 @@ window.ARTWORKS = [
     title: "Composition with Northern Mushrooms 1",
     year: 2023,
     collection: "Still Life",
-    size: "Medium",
-    size_cm: "60x60",
+    size: "Extra Large",
+    size_cm: "100x80",
     medium: "Oil on Canvas",
     status: "Available",
     price: "AED 5,000",
@@ -243,8 +243,8 @@ window.ARTWORKS = [
     title: "Composition with Northern Mushrooms 2",
     year: 2023,
     collection: "Still Life",
-    size: "Extra Large",
-    size_cm: "100x80",
+    size: "Medium",
+    size_cm: "60x60",
     medium: "Oil on Canvas",
     status: "Available",
     price: "AED 5,000",
@@ -426,7 +426,7 @@ window.ARTWORKS = [
     size_cm: "43x43",
     medium: "Oil on Canvas",
     status: "Available",
-    price: "AED 2,000",
+    price: "AED 1,500",
     image: "./images/Hand_with_Clementine.png",
     support_images: [
   './images/supportimages/Hand_with_Clementine_s1.jpg'
@@ -763,8 +763,7 @@ window.ARTWORKS = [
     image: "./images/Strength_Of_The_Spirit_1.jpg",
     support_images: [
   './images/supportimages/Strength_Of_The_Spirit_1_s1.jpg',
-  './images/supportimages/Strength_Of_The_Spirit_1_s2.jpg',
-  './images/supportimages/Strength_Of_The_Spirit_1_s3.jpg'
+  './images/supportimages/Strength_Of_The_Spirit_1_s2.jpg'
     ],
     focal: "top",
     framed: "No",
@@ -979,7 +978,7 @@ window.ARTWORKS = [
     size_cm: "40x50",
     medium: "Oil on Canvas",
     status: "Available",
-    price: "AED 2,500",
+    price: "AED 1,500",
     image: "./images/Tulip_And_Dragonfruit.jpg",
     focal: "top",
     framed: "No",
@@ -1052,7 +1051,7 @@ window.ARTWORKS = [
     title: "Two Daschunds",
     year: 2025,
     collection: "Animals",
-    size: "Medium",
+    size: "Large",
     size_cm: "64x94",
     medium: "Charcoal on Paper",
     status: "Available",
@@ -1176,7 +1175,7 @@ window.ARTWORKS = [
   size_cm: "25x25",
   medium: "Pen and Marker",
   status: "Available",
-  price: "AED 750",
+  price: "AED 500",
   image: "./images/Tube_of_Oil_Paint.jpg",
   support_images: [
     "./images/supportimages/Tube_of_Oil_Paint_s1.jpg",
@@ -1195,7 +1194,7 @@ window.ARTWORKS = [
   size_cm: "33x33",
   medium: "Oil on Paper",
   status: "Available",
-  price: "AED 750",
+  price: "AED 500",
   image: "./images/Seashell.jpg",
   support_images: [
     "./images/supportimages/Seashell_s1.jpg",
@@ -1214,7 +1213,7 @@ window.ARTWORKS = [
   size_cm: "33x33",
   medium: "Oil on Paper",
   status: "Available",
-  price: "AED 750",
+  price: "AED 500",
   image: "./images/Pomegranate_Half.jpg",
   support_images: [
     "./images/supportimages/Pomegranate_Half_s1.jpg",
@@ -1233,7 +1232,7 @@ window.ARTWORKS = [
   size_cm: "33x33",
   medium: "Oil on Paper",
   status: "Available",
-  price: "AED 750",
+  price: "AED 500",
   image: "./images/Pomegranate_Full.jpg",
   support_images: [
     "./images/supportimages/Pomegranate_Full_s1.jpg",
@@ -1252,7 +1251,7 @@ window.ARTWORKS = [
   size_cm: "33x33",
   medium: "Oil on Paper",
   status: "Available",
-  price: "AED 750",
+  price: "AED 500",
   image: "./images/Apple.jpg",
   support_images: [
     "./images/supportimages/Apple_s1.jpg",
@@ -1271,7 +1270,7 @@ window.ARTWORKS = [
   size_cm: "33x33",
   medium: "Oil on Paper",
   status: "Available",
-  price: "AED 750",
+  price: "AED 500",
   image: "./images/Starfish.jpg",
   support_images: [
     "./images/supportimages/Starfish_s1.jpg",
@@ -1290,7 +1289,7 @@ window.ARTWORKS = [
   size_cm: "33x33",
   medium: "Oil on Paper",
   status: "Available",
-  price: "AED 750",
+  price: "AED 500",
   image: "./images/Siamese_Cat.jpg",
   support_images: [
     "./images/supportimages/Siamese_Cat_s1.jpg",
@@ -1309,7 +1308,7 @@ window.ARTWORKS = [
   size_cm: "33x33",
   medium: "Oil on Paper",
   status: "Available",
-  price: "AED 750",
+  price: "AED 500",
   image: "./images/Napping_Cat.jpg",
   support_images: [
     "./images/supportimages/Napping_Cat_s1.jpg",
@@ -1328,7 +1327,7 @@ window.ARTWORKS = [
   size_cm: "33x33",
   medium: "Oil on Paper",
   status: "Available",
-  price: "AED 750",
+  price: "AED 500",
   image: "./images/Borzoi.jpg",
   support_images: [
     "./images/supportimages/Borzoi_s1.jpg",
@@ -1347,7 +1346,7 @@ window.ARTWORKS = [
   size_cm: "33x33",
   medium: "Oil on Paper",
   status: "Available",
-  price: "AED 750",
+  price: "AED 500",
   image: "./images/Dalmatian_2.jpg",
   support_images: [
     "./images/supportimages/Dalmatian_2_s1.jpg",
@@ -1366,7 +1365,7 @@ window.ARTWORKS = [
   size_cm: "33x33",
   medium: "Oil on Paper",
   status: "Available",
-  price: "AED 750",
+  price: "AED 500",
   image: "./images/Flamingos.jpg",
   support_images: [
     "./images/supportimages/Flamingos_s1.jpg",
@@ -1385,7 +1384,7 @@ window.ARTWORKS = [
   size_cm: "33x33",
   medium: "Oil on Paper",
   status: "Available",
-  price: "AED 750",
+  price: "AED 500",
   image: "./images/Girl_With_an_Orange.jpg",
   support_images: [
     "./images/supportimages/Girl_With_an_Orange_s1.jpg",
@@ -1404,7 +1403,7 @@ window.ARTWORKS = [
   size_cm: "33x33",
   medium: "Oil on Paper",
   status: "Available",
-  price: "AED 750",
+  price: "AED 500",
   image: "./images/Portrait_of_a_Female_Boxer.jpg",
   support_images: [
     "./images/supportimages/Portrait_of_a_Female_Boxer_s1.jpg",
@@ -1423,7 +1422,7 @@ window.ARTWORKS = [
   size_cm: "33x33",
   medium: "Oil on Paper",
   status: "Available",
-  price: "AED 750",
+  price: "AED 500",
   image: "./images/Portrait_of_a_Male_Boxer.jpg",
   support_images: [
     "./images/supportimages/Portrait_of_a_Male_Boxer_s1.jpg",
@@ -1442,7 +1441,7 @@ window.ARTWORKS = [
   size_cm: "33x33",
   medium: "Oil on Paper",
   status: "Available",
-  price: "AED 750",
+  price: "AED 500",
   image: "./images/Portrait_of_a_Male_Boxer_2.jpg",
   support_images: [
     "./images/supportimages/Portrait_of_a_Male_Boxer_2_s1.jpg",
