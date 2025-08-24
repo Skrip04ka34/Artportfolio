@@ -112,9 +112,16 @@
         <!-- Contact -->
         <div class="mt-6 rounded-2xl border bg-white p-6">
           <h3 class="text-xl font-semibold mb-2">Contact</h3>
-          <p class="text-neutral-700">Email: <a href="mailto:artist.dariaavd@gmail.com" class="underline">artist.dariaavd@gmail.com</a></p>
+          <p class="text-neutral-600 mb-4 flex items-center gap-2">
+  Email: 
+  <a href="mailto:artist.dariaavd@gmail.com" class="underline">artist.dariaavd@gmail.com</a>
+  <button onclick="copyEmail()" 
+          class="px-2 py-1 text-xs rounded-lg border hover:bg-neutral-100">
+    Copy
+  </button>
+</p>
           <p class="text-neutral-700">Instagram: <a href="https://instagram.com/dariadrawsart" class="underline">@dariadrawsart</a></p>
-          <p class="text-neutral-700">Mobile & WhatsApp: 0585960342</p>
+          <p class="text-neutral-700">Mobile & WhatsApp: +971 58 596 0342 </p>
         </div>
       </div>
     </section>
@@ -122,5 +129,16 @@
 
   <footer class="py-10 text-center text-sm text-neutral-500">© <span id="year"></span> Daria Avdeeva. All rights reserved.</footer>
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+
+<script>
+  function copyEmail() {
+    const email = "artist.dariaavd@gmail.com";
+    navigator.clipboard.writeText(email).then(() => {
+      alert("Email copied to clipboard!");
+    }).catch(err => {
+      console.error("Failed to copy email:", err);
+    });
+  }
+</script>
 </body>
 </html>
