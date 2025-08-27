@@ -86,25 +86,29 @@
 
   const grid = document.getElementById('home-grid');
 
-  function card(a){
-    return `
-      <article class="group rounded-2xl overflow-hidden border bg-white">
-        <a href="./artwork.html?id=${encodeURIComponent(a.id)}" class="block">
-          <div class="aspect-[4/3] bg-neutral-100 overflow-hidden">
-            <img src="${a.image}" alt="${a.title}" class="w-full h-full object-cover group-hover:scale-105 transition"/>
-          </div>
-          <div class="p-3">
-            <h4 class="font-medium">${a.title}</h4>
-            <p class="text-sm text-neutral-600">${a.medium} • ${a.size_cm} • ${a.year}</p>
-            <div class="mt-2 flex items-center justify-between text-sm">
-              <span class="font-medium">${formatAED(a.price)}</span>
-              <span class="px-2 py-0.5 rounded-full border">${a.size || ""}</span>
-            </div>
-          </div>
-        </a>
-      </article>
-    `;
-  }
+function card(a){ 
+  return `
+    <article class="group rounded-2xl overflow-hidden border bg-white">
+      <a href="./artwork.html?id=${encodeURIComponent(a.id)}" class="block">
+        <div class="aspect-[4/3] bg-neutral-100 overflow-hidden">
+          <img src="${a.image}" alt="${a.title}" 
+               class="w-full h-full object-cover group-hover:scale-105 transition"/>
+        </div>
+      </a>
+      <div class="p-3 flex flex-col">
+        <h4 class="font-medium mb-1">${a.title}</h4>
+        <p class="text-sm text-neutral-600 mb-3">${a.medium} • ${a.size_cm} • ${a.year}</p>
+        <div class="mt-auto flex items-center justify-between text-sm">
+          <span class="font-medium">${formatAED(a.price)}</span>
+          <a href="./artwork.html?id=${encodeURIComponent(a.id)}" 
+             class="px-3 py-1 rounded-xl bg-neutral-900 text-white hover:opacity-90 text-xs">
+            View Artwork
+          </a>
+        </div>
+      </div>
+    </article>
+  `;
+}
 
   // Card for the long dachshund
   function dachshundCard(a){
