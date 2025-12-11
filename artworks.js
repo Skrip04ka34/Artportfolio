@@ -1515,5 +1515,26 @@ window.ARTWORKS = [
   location: "Dubai",
   description: "An empty stage awaiting the return of movement and energy."
 },
-
+{
+  id: "a80",
+  title: "On Guard",
+  year: 2025,
+  collection: "Animals",
+  size: "Medium",
+  size_cm: "40x100",
+  medium: "Oil on Canvas",
+  status: "Available",
+  price: "AED 5,000",
+  image: "./images/On_Guard.jpg",
+  support_images: [
+    "./images/supportimages/On_Guard_s1.jpg",
+    "./images/supportimages/On_Guard_s2.jpg",
+    "./images/supportimages/On_Guard_s3.jpg",
+    "./images/supportimages/On_Guard_s4.jpg",
+    "./images/supportimages/On_Guard_s5.jpg"
+  ],
+  framed: "Yes",
+  location: "Dubai",
+  description: "In On Guard, a dachshund stretches calmly across a quiet, pale surface, its body at rest but its awareness unmistakably present. Though the scene appears peaceful, the dog’s steady gaze reveals a silent vigilance—an unspoken promise to protect what lies behind it. The deep blue plane rising above the horizon suggests a vast, unknown expanse, while the soft ground beneath the dog reinforces a sense of safety that the animal seems determined to preserve. Despite its small size, the dachshund occupies the space with quiet authority, embodying the idea that guardianship isn’t measured by physical strength but by commitment and attentiveness. On Guard becomes a reflection on loyalty, responsibility, and the often unnoticed figures—human or animal—who stand watch over the fragile calm of our lives."
+},
 ];
