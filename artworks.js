@@ -1537,4 +1537,25 @@ window.ARTWORKS = [
   location: "Dubai",
   description: "In On Guard, a dachshund stretches calmly across a quiet, pale surface, its body at rest but its awareness unmistakably present. Though the scene appears peaceful, the dog’s steady gaze reveals a silent vigilance—an unspoken promise to protect what lies behind it. The deep blue plane rising above the horizon suggests a vast, unknown expanse, while the soft ground beneath the dog reinforces a sense of safety that the animal seems determined to preserve. Despite its small size, the dachshund occupies the space with quiet authority, embodying the idea that guardianship isn’t measured by physical strength but by commitment and attentiveness. On Guard becomes a reflection on loyalty, responsibility, and the often unnoticed figures—human or animal—who stand watch over the fragile calm of our lives."
 },
+  {
+  id: "a81",
+  title: "Appearing From Shadows",
+  year: 2026,
+  collection: "Figures & Portraits",
+  size: "Extra Large",
+  size_cm: "180x100",
+  medium: "Oil on Canvas",
+  status: "Available",
+  price: "AED 14,000",
+  image: "./images/Appearing_From_Shadows.jpg",
+  support_images: [
+    "./images/supportimages/Appearing_From_Shadows_s1.jpg",
+    "./images/supportimages/Appearing_From_Shadows_s2.jpg",
+    "./images/supportimages/Appearing_From_Shadows_s3.jpg",
+    "./images/supportimages/Appearing_From_Shadows_s4.jpg"
+  ],
+  framed: "Yes",
+  location: "Dubai",
+  description: "The distinction between the subject and the space is nothing but a concept. Here, the shadow is not an absence of light, but the very substance from which the figure is built, a structural unity where the environment and the individual are one and the same. The only proof of existence lies in doing. The focus of light settles on the hands, the epicenter of effort and the potential for action within total stillness. As the feet gradually anchor and plant into the earth, the figure transitions from a fleeting vision into a permanent, rooted presence."
+},
 ];
