@@ -425,8 +425,8 @@ window.ARTWORKS = [
     size: "Medium",
     size_cm: "43x43",
     medium: "Oil on Canvas",
-    status: "Available",
-    price: " 1,500",
+    status: "Unavailable",
+    price: "N/A",
     image: "./images/Hand_with_Clementine.png",
     support_images: [
   './images/supportimages/Hand_with_Clementine_s1.jpg'
@@ -978,7 +978,7 @@ window.ARTWORKS = [
     size_cm: "40x50",
     medium: "Oil on Canvas",
     status: "Available",
-    price: "AED 1,500",
+    price: "AED 2,500",
     image: "./images/Tulip_And_Dragonfruit.jpg",
     focal: "top",
     framed: "No",
