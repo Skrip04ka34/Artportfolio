@@ -920,7 +920,7 @@ window.ARTWORKS = [
     size_cm: "250x100",
     medium: "Oil on Canvas",
     status: "Available",
-    price: "AED 41,700",
+    price: "AED 40000",
     image: "./images/The_Running_Daschund.jpg",
     support_images: [
   './images/supportimages/The_Running_Daschund_s1.jpg',
