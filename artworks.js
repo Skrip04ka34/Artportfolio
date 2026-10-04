@@ -1558,4 +1558,45 @@ window.ARTWORKS = [
   location: "Dubai",
   description: "The distinction between the subject and the space is nothing but a concept. Here, the shadow is not an absence of light, but the very substance from which the figure is built, a structural unity where the environment and the individual are one and the same. The only proof of existence lies in doing. The focus of light settles on the hands, the epicenter of effort and the potential for action within total stillness. As the feet gradually anchor and plant into the earth, the figure transitions from a fleeting vision into a permanent, rooted presence."
 },
+  {
+  id: "a82",
+  title: "Primary Colors",
+  year: 2026,
+  collection: "Still Life",
+  size: "Extra Large",
+  size_cm: "210x70",
+  medium: "Oil on Canvas",
+  status: "Available",
+  price: "AED 33,400",
+  image: "./images/Primary_Colors.jpg",
+  support_images: [
+    "./images/supportimages/Primary_Colors_s1.jpg",
+    "./images/supportimages/Primary_Colors_s2.jpg",
+  ],
+  framed: "Yes",
+  location: "Dubai",
+  description: "Primary Colors presents a striking, painterly depiction of a loaded barbell set against a textured, deep crimson backdrop. The artwork explores the intersection of raw physical strength and classical color theory, drawing a playful connection between foundational artistic pigments—red, yellow, and cool metallic blues—and the standardized color-coding of weightlifting bumper plates. Direct overhead lighting casts grounded shadows beneath the bar, while expressive, visible brushstrokes imbue the surrounding space with atmosphere and warmth, transforming an everyday piece of fitness equipment into a contemplative, powerful still life."
+},
+  {
+  id: "a83",
+  title: "Morning Float",
+  year: 2026,
+  collection: "Animals",
+  size: "Extra Large",
+  size_cm: "200x100",
+  medium: "Oil on Canvas",
+  status: "Available",
+  price: "AED 33,400",
+  image: "./images/Morning_Float.jpg",
+  support_images: [
+    "./images/supportimages/Morning_Float_s1.jpg",
+    "./images/supportimages/Morning_Float_s2.jpg",
+    "./images/supportimages/Morning_Float_s3.jpg",
+    "./images/supportimages/Morning_Float_s4.jpg",
+    "./images/supportimages/Morning_Float_s5.jpg"
+  ],
+  framed: "Yes",
+  location: "Dubai",
+  description: "Morning Float captures a whimsical, dreamlike scene featuring two raccoons suspended effortlessly across a starry, light-blue field. Soft brushwork renders their textured fur, striped tails, and expressive paws with a gentle realism, while pale white and yellow stars drift across the background to evoke a quiet celestial realm. With one raccoon stretching downward and open-mouthed while the other reposes serenely on its back, the piece pairs dynamic movement with tranquil playfulness, turning an ordinary wildlife moment into a weightless, surreal dreamscape."
+},
 ];
