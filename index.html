@@ -76,8 +76,8 @@
   // Pick exactly these 3 by title
   const PICKS = [
     "Monkeys Everywhere - The Dance of Instinct",
-    "Morning Coffee",
-    "The Silent Sentinel"
+    "Morning Float",
+    "On Guard"
   ];
 
   // Quick lookup by normalized title
@@ -125,8 +125,7 @@ function card(a){
         <h4 class="text-xl font-semibold mb-2">${a.title}</h4>
         <p class="text-sm text-neutral-600 mb-3">${a.medium} • ${a.size_cm} • ${a.year}</p>
         <p class="text-neutral-700 mb-4">
-          A dynamic, extra-large oil painting capturing the playful energy and motion of a running dachshund. 
-          Perfect for adding movement, warmth, and a touch of whimsy to any space.
+         Exploring the intersection of raw physical strength and classical color theory, drawing a playful connection between foundational artistic pigments—red, yellow, and cool metallic blues—and the standardized color-coding of weightlifting bumper plates.
         </p>
         <div class="mt-auto flex items-center justify-between text-sm">
           <span class="font-medium">${formatAED(a.price)}</span>
@@ -144,7 +143,7 @@ function card(a){
     console.warn("No matching artworks found for homepage picks. Check titles in artworks.js.");
   }
 
-  const dachshund = byTitle.get("the running dachshund");
+  const dachshund = byTitle.get("Primary Colors");
   const dachshundMarkup = dachshund ? dachshundCard(dachshund) : "";
 
   grid.innerHTML = selected.map(card).join("") + dachshundMarkup;
