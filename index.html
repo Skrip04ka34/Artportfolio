@@ -143,7 +143,7 @@ function card(a){
     console.warn("No matching artworks found for homepage picks. Check titles in artworks.js.");
   }
 
-  const dachshund = byTitle.get("Primary Colors");
+  const dachshund = byTitle.get("primary colors");
   const dachshundMarkup = dachshund ? dachshundCard(dachshund) : "";
 
   grid.innerHTML = selected.map(card).join("") + dachshundMarkup;
