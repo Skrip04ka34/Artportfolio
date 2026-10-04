@@ -426,7 +426,7 @@ window.ARTWORKS = [
     size_cm: "43x43",
     medium: "Oil on Canvas",
     status: "Unavailable",
-    price: "N/A",
+    price: "",
     image: "./images/Hand_with_Clementine.png",
     support_images: [
   './images/supportimages/Hand_with_Clementine_s1.jpg'
@@ -841,7 +841,7 @@ window.ARTWORKS = [
     size_cm: "80x80",
     medium: "Oil on Canvas",
     status: "Unavailable",
-    price: "N/A",
+    price: "",
     image: "./images/Sunflower_Field_2.jpg",
     support_images: [
   './images/supportimages/Sunflower_Field_2_s1.jpg',
@@ -1308,7 +1308,7 @@ window.ARTWORKS = [
   size_cm: "33x33",
   medium: "Oil on Paper",
   status: "Unavailable",
-  price: "N/A",
+  price: "",
   image: "./images/Napping_Cat.jpg",
   support_images: [
     "./images/supportimages/Napping_Cat_s1.jpg",
