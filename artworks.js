@@ -409,8 +409,6 @@ window.ARTWORKS = [
     image: "./images/Green_Shoes.jpg",
     support_images: [
   './images/supportimages/Green_Shoes_s1.jpg',
-  './images/supportimages/Green_Shoes_s2.jpg',
-  './images/supportimages/Green_Shoes_s3.jpg'
     ],
     focal: "top",
     framed: "No",
@@ -744,7 +742,6 @@ window.ARTWORKS = [
     image: "./images/Red_Shoes.jpg",
     support_images: [
   './images/supportimages/Red_Shoes_s1.jpg',
-  './images/supportimages/Red_Shoes_s2.jpg'
     ],
     framed: "No",
     location: "Dubai",
@@ -1462,7 +1459,7 @@ window.ARTWORKS = [
   status: "Available",
   price: "AED 1,000",
   image: "./images/Squirrel.jpg",
-  framed: "Yes",
+  framed: "No",
   location: "Dubai",
   description: "A woodland spirit pausing in playful curiosity."
 },
@@ -1477,7 +1474,7 @@ window.ARTWORKS = [
   status: "Available",
   price: "AED 1,000",
   image: "./images/Mushroom.jpg",
-  framed: "Yes",
+  framed: "No",
   location: "Dubai",
   description: "Earth’s quiet sculpture rising from the forest floor."
 },
@@ -1496,7 +1493,7 @@ window.ARTWORKS = [
     "./images/supportimages/Snowman_s1.jpg",
     "./images/supportimages/Snowman_s2.jpg"
   ],
-  framed: "Yes",
+  framed: "No",
   location: "Dubai",
   description: "Winter’s fleeting companion, shaped in joy and frost."
 },
@@ -1511,7 +1508,7 @@ window.ARTWORKS = [
   status: "Available",
   price: "AED 1,000",
   image: "./images/Gym_Studio.jpg",
-  framed: "Yes",
+  framed: "No",
   location: "Dubai",
   description: "An empty stage awaiting the return of movement and energy."
 },
@@ -1533,7 +1530,7 @@ window.ARTWORKS = [
     "./images/supportimages/On_Guard_s4.jpg",
     "./images/supportimages/On_Guard_s5.jpg"
   ],
-  framed: "Yes",
+  framed: "No",
   location: "Dubai",
   description: "In On Guard, a dachshund stretches calmly across a quiet, pale surface, its body at rest but its awareness unmistakably present. Though the scene appears peaceful, the dog’s steady gaze reveals a silent vigilance—an unspoken promise to protect what lies behind it. The deep blue plane rising above the horizon suggests a vast, unknown expanse, while the soft ground beneath the dog reinforces a sense of safety that the animal seems determined to preserve. Despite its small size, the dachshund occupies the space with quiet authority, embodying the idea that guardianship isn’t measured by physical strength but by commitment and attentiveness. On Guard becomes a reflection on loyalty, responsibility, and the often unnoticed figures—human or animal—who stand watch over the fragile calm of our lives."
 },
@@ -1554,7 +1551,7 @@ window.ARTWORKS = [
     "./images/supportimages/Appearing_From_Shadows_s3.jpg",
     "./images/supportimages/Appearing_From_Shadows_s4.jpg"
   ],
-  framed: "Yes",
+  framed: "No",
   location: "Dubai",
   description: "The distinction between the subject and the space is nothing but a concept. Here, the shadow is not an absence of light, but the very substance from which the figure is built, a structural unity where the environment and the individual are one and the same. The only proof of existence lies in doing. The focus of light settles on the hands, the epicenter of effort and the potential for action within total stillness. As the feet gradually anchor and plant into the earth, the figure transitions from a fleeting vision into a permanent, rooted presence."
 },
@@ -1573,7 +1570,7 @@ window.ARTWORKS = [
     "./images/supportimages/Primary_Colors_s1.jpg",
     "./images/supportimages/Primary_Colors_s2.jpg",
   ],
-  framed: "Yes",
+  framed: "No",
   location: "Dubai",
   description: "Primary Colors presents a striking, painterly depiction of a loaded barbell set against a textured, deep crimson backdrop. The artwork explores the intersection of raw physical strength and classical color theory, drawing a playful connection between foundational artistic pigments—red, yellow, and cool metallic blues—and the standardized color-coding of weightlifting bumper plates. Direct overhead lighting casts grounded shadows beneath the bar, while expressive, visible brushstrokes imbue the surrounding space with atmosphere and warmth, transforming an everyday piece of fitness equipment into a contemplative, powerful still life."
 },
@@ -1595,8 +1592,83 @@ window.ARTWORKS = [
     "./images/supportimages/Morning_Float_s4.jpg",
     "./images/supportimages/Morning_Float_s5.jpg"
   ],
-  framed: "Yes",
+  framed: "No",
   location: "Dubai",
   description: "Morning Float captures a whimsical, dreamlike scene featuring two raccoons suspended effortlessly across a starry, light-blue field. Soft brushwork renders their textured fur, striped tails, and expressive paws with a gentle realism, while pale white and yellow stars drift across the background to evoke a quiet celestial realm. With one raccoon stretching downward and open-mouthed while the other reposes serenely on its back, the piece pairs dynamic movement with tranquil playfulness, turning an ordinary wildlife moment into a weightless, surreal dreamscape."
+},
+  {
+  id: "a84",
+  title: "Gibbons",
+  year: 2026,
+  collection: "Animals",
+  size: "Large",
+  size_cm: "90x90",
+  medium: "Oil on Canvas",
+  status: "Available",
+  price: "AED 16,700",
+  image: "./images/Gibbons.jpg",
+  support_images: [
+    "./images/supportimages/Gibbons_s1.jpg",
+    "./images/supportimages/Gibbons_s2.jpg",
+    "./images/supportimages/Gibbons_s3.jpg"
+  ],
+  framed: "No",
+  location: "Dubai",
+  description: "Two gibbons rest peacefully side by side, embraced by the gentle stillness of nature. Their relaxed postures reflect the quiet beauty of slowing down and finding comfort in each other's presence. In a world that rarely stops moving, they remind us that rest is not simply the absence of activity, but a meaningful part of existence and that sometimes, the greatest luxury is to do nothing, together."
+},
+   {
+  id: "a85",
+  title: "Tiger At Home",
+  year: 2026,
+  collection: "Animals",
+  size: "Extra Large",
+  size_cm: "130x100",
+  medium: "Oil on Canvas",
+  status: "Available",
+  price: "AED 20,000",
+  image: "./images/Tiger_at_home.jpg",
+  support_images: [
+    "./images/supportimages/Tiger_at_home_s1.jpg",
+    "./images/supportimages/Tiger_at_home_s2.jpg"
+  ],
+  framed: "No",
+  location: "Dubai",
+  description: "In a world defined by order and perspective, Alfred invites us to see things differently. Resting effortlessly against a restless landscape of bold patterns, he embodies the freedom of simply being. His upside-down world reminds us that sometimes, shifting our perspective is all it takes to find harmony in chaos."
+},
+   {
+  id: "a86",
+  title: "Pond 1",
+  year: 2026,
+  collection: "Still life",
+  size: "Small",
+  size_cm: "30x24",
+  medium: "Oil on Canvas",
+  status: "Available",
+  price: "AED 1,700",
+  image: "./images/Pond1.jpg",
+  support_images: [
+    "./images/supportimages/Pond1_s1.jpg",
+  ],
+  framed: "No",
+  location: "Dubai",
+  description: "Amid shifting reflections and layers of green, delicate water lilies emerge from the depths, embodying the quiet balance between stillness and change. Beneath the seemingly calm surface lies a world in constant motion, reminding us that beauty often grows from uncertainty, and that even in chaos, there is space for harmony."
+},
+   {
+  id: "a87",
+  title: "Pond 2",
+  year: 2026,
+  collection: "Still Life",
+  size: "Small",
+  size_cm: "30x24",
+  medium: "Oil on Canvas",
+  status: "Available",
+  price: "AED 1,700",
+  image: "./images/Pond2.jpg",
+  support_images: [
+    "./images/supportimages/Pond2_s1.jpg",
+  ],
+  framed: "No",
+  location: "Dubai",
+  description: "Amid shifting reflections and layers of green, delicate water lilies emerge from the depths, embodying the quiet balance between stillness and change. Beneath the seemingly calm surface lies a world in constant motion, reminding us that beauty often grows from uncertainty, and that even in chaos, there is space for harmony."
 },
 ];
